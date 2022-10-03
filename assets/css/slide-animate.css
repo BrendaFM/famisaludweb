@@ -1,0 +1,135 @@
+.mysliders.slides{
+  position: relative;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+}
+
+@media (max-width: 770px) {
+  .mysliders.slides{
+    display: none;
+  }
+}
+
+.mysliders.slides::after{
+  content: "";
+  position: absolute;
+  inset: 0; 
+  z-index: 10;
+}
+
+.mysliders .slide{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: cycle 20s infinite;
+}
+
+.mysliders .slide-image{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+}
+
+.mysliders .slide:nth-child(2){
+  animation-delay: 7s;
+}
+
+.mysliders .slide:nth-child(3){
+  animation-delay: 13s;
+}
+
+@keyframes cycle {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  20% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  45% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {opacity: 0;}
+}
+
+
+
+
+/* 
+* =================================================================
+* Tel animate
+* =================================================================
+*/
+.phone-numbers{
+  position: relative;
+  background: transparent;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* .phone-numbers::after{
+  content: "";
+  position: absolute;
+  inset: 0; 
+  z-index: 10;
+} */
+
+.phone-numbers .phone{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: animate-phone 15s ease-in-out both infinite;
+}
+
+
+.phone-numbers .number{
+  width: 100%;
+  height: 100%;
+}
+
+
+
+.phone-numbers .phone:nth-child(2){
+  animation-delay: 5s;
+}
+
+.phone-numbers .phone:nth-child(3){
+  animation-delay: 10s;
+}
+
+@keyframes animate-phone {
+  0% {opacity: 0;}
+  10% {opacity: 0.8;}
+  20% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  45% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {opacity: 0;}
+}
+
+
+@keyframes animate-top {
+  to{
+    opacity: 1;
+    transform: translate3d(0, 200px, 0);
+  }
+  from{
+    opacity: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}

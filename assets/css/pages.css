@@ -1,0 +1,276 @@
+.page-header{
+  width: 100%; 
+  height: 250px; 
+  background: #055bb7;
+  position: relative;
+}
+
+.page-header .title{
+  text-align: start; 
+  text-align-last: left;
+  position: absolute; 
+  color: #fff; 
+  font-weight: bold;
+  text-transform: uppercase;
+  top: auto;
+  bottom: 25px;  
+}
+
+@media (max-width: 867px) {
+  .page-header{
+    height: 200px; 
+  }
+  
+  .page-header .title{
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 468px) {
+  .page-header{
+    height: 160px; 
+  }
+  
+  .page-header .title{
+    text-align: center;
+    text-align-last: center;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+  }
+}
+
+
+.container-data,
+.politics{
+  top: 250px;
+  padding: 40px auto;
+}
+
+.politics .subtitle{
+  color: #055bb7;
+  font-weight: bold;
+  font-size: 17px;
+  margin-top: 2em;
+  margin-bottom: 1.2em;
+}
+
+.politics p{
+  font-size: 15px;
+}
+.politics p:last-child{
+  margin-bottom: 50px;
+}
+
+/*
+* -------------------------------------------------------------------------
+*   DISEÑO DE LOS CARDS - DIFERENTES PAGINAS
+* -------------------------------------------------------------------------
+*/
+.container-page{
+  max-width: 1300px;
+  margin: auto;
+}
+
+.container-data {
+  padding: 2em 0;
+  padding-bottom: 4em;
+}
+
+.container-controls {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container-controls .title{
+  padding: 0;
+  margin: 0;
+}
+
+.container-controls  *{
+  border-radius: 50px !important;
+  padding: 15px;
+  line-height: 1em;
+}
+
+/* CONTENEDOR BOX */
+.container-data .content-header{
+  border-bottom: 3px double #055bb7;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container-data .container-controls .title,
+.container-data .content-header .title{
+  text-transform: uppercase;
+  color: #055bb7;
+  font-weight: bold;
+}
+
+.container-data .container-cards{
+  margin-top: 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5em;  
+  padding: 0.5em;
+}
+
+
+.container-cards .box{
+  width: 400px;
+  height: auto;
+  padding: 15px;
+  overflow: hidden;
+  border: 2px solid #cfcfcf;
+  border-radius: 1.4rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.container-cards .box:hover{  
+  transform: translateY(-1.5%);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/*  */
+.container-cards .box.box-separate{
+  padding: 0;
+  border: 0;
+}
+.container-cards .box.box-separate .box-header,
+.container-cards .box.box-separate .box-body{
+  border-radius: inherit;
+  border: 2px solid #cfcfcf;
+}
+
+.container-cards .box.box-separate .box-header{
+  height: 340px;
+}
+.container-cards .box.box-separate .box-body{
+  margin-top: 0.5em;
+  padding: 15px;
+}
+
+.container-cards .box.box.box-separate .box-body .name{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: justify;
+  width: 100%;
+  height: 2.5em;
+  font-weight: bold;
+}
+
+/* BOX HEADER */
+.container-cards .box .box-header{
+  border-radius: 0.9rem;
+  height: 280px;
+  /* border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; */
+}
+
+.container-cards .box-header img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: inherit;
+}
+
+/* BOX BODY */
+.container-cards .box .box-body{
+  padding-top: 0.8em;
+}
+
+.container-cards .box-body .subtitle{
+  text-transform: uppercase;
+}
+
+.container-cards .box-body .title{
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;  
+  color: #055bb7;
+}
+
+.container-cards .box-body .paragraph {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: justify;
+  width: 100%;
+}
+
+/* BOX FOOTER */
+.container-cards .box .box-footer{
+  text-align: end;
+}
+
+.container-cards .box-footer .btn-show-more{
+  background: transparent;
+  color: #817f7f;
+  font-weight: bold;
+  border: 1px solid transparent;
+  padding: 2px 9px;
+  border-radius: 15px;
+}
+.container-cards .box-footer .btn-show-more:hover{
+  background: transparent;
+  color: #055bb7;
+  font-weight: bold;
+  border: 1px solid rgb(9, 78, 151);
+  padding: 2px 9px;
+  border-radius: 15px;
+  box-shadow: 0 0 5px #86afda;
+}
+
+
+/*
+* -------------------------------------------------------------------------
+*   ERROR 404 - PÁGINA NO ENCONTRADA
+* -------------------------------------------------------------------------
+*/
+.container-page-error{
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  padding: 15px;
+  background: #055bb7;
+  color: #fff;
+  display: flex;
+}
+
+.container-page-error .box{
+  max-width: 450px;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  border-radius: 0.5rem;
+}
+.container-page-error .box .box-header{
+  display: inherit;
+  flex-direction: column;
+}
+
+.container-page-error .box .box-header i,
+.container-page-error .box .box-header span{
+  font-size: 28px;
+  color: rgb(216, 13, 30);
+
+}
+
+.container-page-error .box .box-header i{
+  font-size: 48px;
+}

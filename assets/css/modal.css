@@ -1,0 +1,243 @@
+
+
+.content-ambulance{
+  position: relative;
+  padding: 15px;
+}
+
+.content-ambulance .ambulance{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.content-ambulance .content-text{
+  width: 60%;
+  padding: 15px;    
+  border: 1px solid #afb1b1;
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.content-ambulance .content-text h2{
+  color: #055bb7;
+  font-weight: bold;
+  transition: all .3s ease-in-out;
+}
+
+.content-ambulance .content-text p{
+  text-align: justify;
+}
+
+.content-ambulance .content-image{
+  width: 40%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.content-ambulance .content-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: inherit;
+}
+
+.content-ambulance .ambulance .content-text{
+  transition: all 0.5s ease-in-out;
+  margin-right: -8px;
+  order: 1;
+  z-index: 1500;
+}
+
+.content-ambulance .ambulance .content-text:hover{
+  transform: translateX(15px);
+}
+
+.content-ambulance .ambulance .content-image{
+  margin-left: -8px;
+  order: 2;
+}
+
+.content-ambulance .item-2 .content-text{
+  transition: all 0.5s ease-in-out;
+  margin-left: -8px;
+  z-index: 1500;
+  order: 2;
+}
+
+.content-ambulance .item-2 .content-text:hover{
+  transform: translateX(-15px);
+}
+
+.content-ambulance .item-2 .content-image{
+  margin-right: -8px;
+  order: 1;
+}
+
+
+@media (max-width: 1100px) {
+  .content-ambulance .ambulance{
+    width: 100%;
+    height: 450px;
+    margin-bottom: 1em;
+  }
+
+
+  .content-ambulance .ambulance .content-text{
+    width: 96%;
+    margin: 0;
+    order: 1;
+    margin-bottom: -15px;    
+  }
+
+  
+  .content-ambulance .ambulance .content-text:hover{
+    transform: translateY(15px);
+  }
+  
+  .content-ambulance .ambulance .content-image{
+    width: 100%;
+    height: 70%;
+    margin: 0;
+    order: 2;
+  }
+
+
+}
+
+@media (max-width: 528px) {
+  
+  .content-ambulance{
+    padding: 8px;
+    height: auto;
+  }
+  .content-ambulance .ambulance{
+    height: auto;
+  }
+
+  .content-ambulance .ambulance .content-image{
+    height: 250px;
+  }
+}
+
+
+/* 
+* =======================================================
+* MODAL PÁGINAS
+* =======================================================
+* */
+.modal .modal-content{
+  background-image: url("../../assets/../img/fondo_blanco.jpg");
+}
+
+.container-data-modal{
+  width: 90%;
+  margin: auto;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .container-data-modal{
+    width: 100%;
+  }
+}
+
+.container-data-modal hr{
+  color: #055bb7;
+}
+
+.container-data-modal .title{
+  font-weight: bold;
+  text-align: center;
+  color: #055bb7;
+}
+
+.container-data-modal p,
+.container-data-modal .paragraph{
+  text-align: justify;
+}
+
+.container-data-modal .content-image{
+  position: relative;
+  max-height: 450px;
+  height: auto;
+  border-radius: 0.8rem;
+}
+.container-data-modal .content-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: inherit;
+}
+
+.container-data-modal .content-hours{
+  width: 100%;
+  padding: 15px;
+  border-radius: 0.5rem;
+  border: 1px solid #828383;
+  bottom: 0;
+  transition: all 0.5s ease-in-out;
+  margin-top: auto;
+  text-align: center;
+  background: #fff;
+}
+
+.container-data-modal .content-hours h5{
+  font-weight: bold;
+}
+
+.container-data-modal .content-hours p{
+  text-align: center;
+}
+
+.container-data-modal .content-hours:hover{
+  transform: translateY(-1.5%);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.container-data-modal .container-sedes{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.container-data-modal .container-sedes .card{
+  min-width: 220px;
+  width: auto;
+  padding: 10px;
+  margin-bottom: 1em;
+  border: 1px solid #afb1b1;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+}
+
+.container-data-modal .container-sedes .campus{
+  font-weight: bold;
+}
+
+.container-data-modal .container-sedes .card .direction{
+  text-align: center;
+}
+
+.container-data-modal .container-sedes .card .subtitle{
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #afb1b1;
+}
+
+.container-data-modal .container-sedes .card:hover{
+  transform: translateY(-1.5%);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}

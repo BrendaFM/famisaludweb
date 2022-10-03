@@ -1,0 +1,142 @@
+.btn-covid{
+  background: #055bb7 !important;
+  color: #fff;
+}
+
+/* .btn-covid::before{
+  content:"";
+  position:absolute;
+  left:-30px;
+  top: 0;
+  width: 0; 
+  height: auto; 
+  border-left: 30px solid transparent;
+  border-right: 0 solid transparent;
+  border-top: 0px solid transparent;
+  border-bottom: 40px solid #055bb7;
+  z-index:-1;
+  height: 100%;
+}
+
+.btn-covid:hover::before{
+  border-bottom: 40px solid #054f9e;
+} */
+
+.btn-covid i{
+  margin-right: 5px;
+}
+
+.btn-covid:hover{
+  background: #054f9e !important;
+  color: #fff !important;
+}
+
+.btn-whatsapp{
+  position: relative; 
+  border-radius: 25px; 
+  overflow: visible; 
+  height: 30px; 
+  font-size: 14px;
+  padding: 0 17px;
+  margin-left: 30px;
+  text-align: center;
+  background: rgb(6, 202, 6) !important;
+  background: linear-gradient(180deg, rgb(14, 226, 14), rgba(38, 107, 11, 0.788)) !important;
+}
+
+.btn-whatsapp i{
+  font-size: 22px;
+}
+
+.btn-whatsapp img{
+  position: absolute; 
+  left: -15px; 
+  top: -4px; 
+  height: 36px;
+}
+
+
+.btn-resultonline {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 11px 15px !important;
+  border-radius: 50px;
+  transition: 0.3s;
+  line-height: 1;
+  background: #055bb7 !important;
+  color: #fff !important;
+  border: 2px solid #055bb7;
+}
+
+.btn-resultonline:hover {
+  background: #054f9e !important;
+  color: #fff !important;
+}
+
+.btn-resultonline {
+  margin-left: 15px;
+}
+
+.btn-round-50{
+  border-radius: 50px !important;
+}
+
+.sede-selector {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: 16px 15px !important;
+  border-radius: 50px;
+  transition: 0.3s;
+  line-height: 1;
+  border: 1px solid #e1e1e1;
+  color: #646465;
+}
+
+
+.btn-servicios{
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 16px 15px !important;
+  border-radius: 50px;
+  transition: 0.3s;
+  line-height: 1;
+  background: #055bb7 !important;
+  color: #fff !important;
+  border: 2px solid #055bb7;
+}
+
+
+
+
+/* Estilos de los inputs */
+.btn-famisalud{
+  background: #055bb7;
+  color: #fff ;
+  border: 2px solid #055bb7;
+}
+
+.btn-famisalud:hover{
+  background: #054f9e !important;
+  color: #fff !important;
+  border: 2px solid #054f9e !important;
+}
+
+.round-50{
+  border-radius: 50px !important;
+}
+
+.round-20{
+  border-radius: 20px !important;
+}
+
+.pd-15{
+  padding: 16px 15px;
+  line-height: 1em;
+}

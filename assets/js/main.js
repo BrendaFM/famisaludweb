@@ -1,9 +1,3 @@
-/**
-* Template Name: Restaurantly - v3.9.0
-* Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 (function() {
   "use strict";
 
@@ -101,12 +95,15 @@
    * Back to top button
    */
   let backtotop = select('.back-to-top')
+  let whatsapp = select('.btn-float.whatsapp')
   if (backtotop) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
         backtotop.classList.add('active')
+        whatsapp.classList.add('active')
       } else {
         backtotop.classList.remove('active')
+        whatsapp.classList.remove('active')
       }
     }
     window.addEventListener('load', toggleBacktotop)

@@ -1,0 +1,119 @@
+#carousel-famisalud{
+  position: relative;
+  height: 645px;
+  width: 100% !important;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#carousel-famisalud .carousel-inner{
+  position: relative;
+  height: 100%;
+}
+
+#carousel-famisalud .carousel-inner .carousel-item{
+  position: relative;
+  height: 100%;
+}
+
+#carousel-famisalud .carousel-inner .carousel-item img{
+  position: relative;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
+
+@media (max-width: 768px) {
+  #carousel-famisalud{
+    height: 450px;
+  }
+
+  #carousel-famisalud .carousel-inner .carousel-item img{
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 498px) {
+  #carousel-famisalud{
+    height: 350px !important;
+  }
+}
+
+#carousel-famisalud .carousel-inner .carousel-item .content-message{
+  position: absolute; 
+  top: 0;  
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+}
+
+.carousel-inner .carousel-item .content-message .content:nth-child(1){
+  position: relative;
+  margin-left: 10%;
+  left: -100%;
+  animation: animate-message 2.8s ease-in-out both reverse;
+}
+
+
+@keyframes animate-message {
+  to{
+    left: -100%;
+  }
+  from{
+    left: 0%;
+  }
+}
+
+
+.carousel-inner .carousel-item .content-message .content:nth-child(2){
+  margin-left: 10%;
+  top: -100%;
+  animation: animate-message-top 2.8s ease-in-out both  reverse !important;
+}
+
+
+@keyframes animate-message-top {
+  to{
+    top: -100%;
+  }
+  from{
+    top: 0%;
+  }
+}
+
+
+.carousel-inner .carousel-item .content-message .content h3{
+  color: #16186b;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.carousel-inner .carousel-item .content-message .content p{
+  font-size: 24px;
+  color: #ececec;
+  text-shadow: 0 0 2px #000;
+}
+
+.carousel-inner .carousel-item .content-message .content a{
+  border-radius: 50px;
+  position: absolute;
+  right: 0;
+}
+
+
+@media (max-width: 980px) {
+  #carousel-famisalud .carousel-inner .carousel-item .content-message{
+    justify-content: center;
+  }
+  .carousel-inner .carousel-item .content-message .content a{
+    position: relative;
+  }
+}
