@@ -8,7 +8,7 @@
 <div class="container-data">
     <div class="container-page container-controls">
         <div class="row">
-            <h4 class="title text-center">Blogs:</h4>
+            <h4 class="title text-center d-none">Selecciona:</h4>
 
             <div class="col-md-4"></div>
             <div class="col-md-4">

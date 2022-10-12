@@ -13,9 +13,14 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 2px solid #777777;
+  border: 3px solid #055bb7;
   border-radius: 50%;
   cursor: pointer;
+}
+
+.content-menu-bars .menu-button i{
+  font-size: 22px;
+  color: #055bb7;
 }
 
 .content-menu-bars .menu-button:hover{
@@ -50,6 +55,7 @@
 .content-menu-bars .menu-button span::after,
 .content-menu-bars .menu-button span{
   background-color: #777777;
+  background-color: #055bb7;
   width: 20px;
   height: 2px;
   transition: .5s ease;

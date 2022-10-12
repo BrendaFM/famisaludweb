@@ -6,7 +6,7 @@
 <div class="container-data">
     <div class="container-page container-controls">
         <div class="row">
-            <h4 class="title text-center">Buscar especialidad:</h4>
+            <h4 class="title text-center d-none">Buscar especialidad:</h4>
 
             <div class="col-md-4"></div>
             <div class="col-md-4">

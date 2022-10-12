@@ -11,6 +11,18 @@
 
     .size-font{
         font-size: 24px;
+        margin: auto;
+    }
+
+    .btn-green{
+        background: #08b44a;
+        color: #fff;
+        display: block !important;
+    }
+    .btn-green:hover{
+        background: #08b44a !important;
+        color: #fff !important;
+        display: block !important;
     }
 
     .select-select{
@@ -72,6 +84,8 @@
         }
     }
 
+
+
 </style>
 
 
@@ -84,6 +98,7 @@
 </div>
 
 <div class="container politics">
+    <br>
     <br>
     <br>
     <br>
@@ -131,14 +146,6 @@
             </div>
         </div>
     </div>
-
-    
-
-    
-    <script>
-        const myModal = new bootstrap.Modal(document.getElementById('modalId'), options);
-    </script>
-
 
 <script>
         $(document).ready(function (){

@@ -99,12 +99,12 @@ CREATE TABLE `carouseldet` (
 
 insert  into `carouseldet`(`idcarouseldet`,`idsede`,`imagen`,`tipo`,`fecha`) values 
 (6,1,'imagencaru11.jpg','P','2022-09-26'),
-(7,1,'imagencaru12.jpg','P','2022-09-26'),
-(8,1,'imagencaru13.jpg','P','2022-09-26'),
+(7,1,'imagencaru12.jpg','S','2022-09-26'),
+(8,1,'imagencaru13.jpg','S','2022-09-26'),
 (12,2,'imagencaru21.jpg','P','2022-09-26'),
-(18,2,'20220930092111.jpg','P','2022-09-30'),
-(19,2,'20220930092133.jpg','P','2022-09-30'),
-(20,4,'20220930092116.jpg','P','2022-09-30');
+(18,2,'20220930092111.jpg','S','2022-09-30'),
+(19,2,'20220930092133.jpg','S','2022-09-30'),
+(20,4,'20220930092116.jpg','S','2022-09-30');
 
 /*Table structure for table `categorias` */
 
@@ -144,7 +144,7 @@ CREATE TABLE `especialidades` (
   `especialidad` varchar(30) NOT NULL,
   `informacion` text NOT NULL,
   `fotografia` varchar(100) NOT NULL,
-  `fotografia2` varchar(100) NOT NULL,
+  `fotografia2` varchar(100) DEFAULT NULL,
   `horario` varchar(30) DEFAULT NULL,
   `horario2` varchar(30) DEFAULT NULL,
   `estadoespecialidad` char(1) NOT NULL,
@@ -152,7 +152,7 @@ CREATE TABLE `especialidades` (
   UNIQUE KEY `uk_especialidad_esp` (`especialidad`,`idsede`),
   KEY `fk_idsede_esp` (`idsede`),
   CONSTRAINT `fk_idsede_esp` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`idsede`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `especialidades` */
 
@@ -167,7 +167,8 @@ insert  into `especialidades`(`idespecialidad`,`idsede`,`especialidad`,`informac
 (8,1,'Medicina General','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121208.jpg','2022092612.jpg','Lunes a Viernes de 7 am a 7pm','Sábado de 7am a 12pm','A'),
 (9,2,'Medicina General','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121252.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','Sábado de 8am a 10pm','A'),
 (10,4,'Medicina General','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121225.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','Sábado de 8am a 10pm','A'),
-(14,1,'cardiologo','	del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los proceso','20220929031531.jpg','2022092903.jpg','','','A');
+(14,1,'cardiologo','	del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los proceso','20220929031531.jpg','2022092903.jpg','','','A'),
+(15,4,'Especialidad de Prueba','Texto de Prueba','20221009092132.jpg',NULL,'','','A');
 
 /*Table structure for table `horariocategoria` */
 
@@ -296,6 +297,28 @@ CREATE TABLE `productos` (
 insert  into `productos`(`idproducto`,`idsede`,`producto`,`precio`,`detalle`,`fotografia`) values 
 (1,1,'Mascarilla KN95',2.00,'Mascarilla para mantenernos protegidos ante el covid','mascarilla.jpg'),
 (3,1,'Mascarilla simple',1.00,'cuida tu salud','2022092108856.jpg');
+
+/*Table structure for table `saludocupacional` */
+
+DROP TABLE IF EXISTS `saludocupacional`;
+
+CREATE TABLE `saludocupacional` (
+  `idsaludocupacional` int(11) NOT NULL AUTO_INCREMENT,
+  `idsede` int(11) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `descripcion` text NOT NULL,
+  PRIMARY KEY (`idsaludocupacional`),
+  KEY `fk_idsede_so` (`idsede`),
+  CONSTRAINT `fk_idsede_so` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`idsede`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `saludocupacional` */
+
+insert  into `saludocupacional`(`idsaludocupacional`,`idsede`,`foto`,`titulo`,`descripcion`) values 
+(2,2,'20221005111109.jpg','Examen Básicos','La Ley N° 29783 es ​​obligatoria y se aplica a todas las actividades económicas. Esto incluye a los empleadores y empleados de la práctica privada, trabajadores del sector público, trabajadores de las fuerzas armadas y la policía nacional, e incluso trabajadores independientes en todo el territorio, ya que un gran porcentaje de las personas que trabajan en Perú están desprotegidas. .'),
+(3,1,'20221005111109.jpg','Salud Ocupacional','Ciencia multidisciplinaria, que tiene como finalidad promover\r\ny mantener el más alto grado posible de bienestar físico,\r\nmental y social de los trabajadores en sus puestos de\r\ntrabajo; prevenir todo'),
+(4,4,'20221007061849.jpg','Beneficios de la salud ocupacional','Antiguamente, el enfoque en la salud ocupacional se centraba, sobre todo, en aquellos que realizaban trabajos manuales, como por ejemplo los obreros. Después de la Guerra Civil, muchas fábricas abrier');
 
 /*Table structure for table `sedes` */
 
@@ -653,7 +676,8 @@ DELIMITER $$
 IN _idsede INT
 )
 BEGIN
-	SELECT * FROM carouseldet WHERE idsede = _idsede AND tipo="P";
+	SELECT * FROM carouseldet WHERE idsede = _idsede AND tipo="P"
+	ORDER BY imagen DESC LIMIT 1;
 END */$$
 DELIMITER ;
 
@@ -998,13 +1022,12 @@ DELIMITER $$
 	IN _especialidad	VARCHAR(30),
 	IN _informacion		TEXT,
 	IN _fotografia  	VARCHAR(100),
-	in _fotografia2		varchar(100),
-	in _horario		varchar(30),
-	in _horario2		varchar(30)
+	IN _horario		VARCHAR(30),
+	IN _horario2		VARCHAR(30)
 )
 BEGIN
 	INSERT INTO especialidades(idsede, especialidad, informacion, fotografia, fotografia2, horario, horario2, estadoespecialidad) VALUES
-			(_idsede, _especialidad, _informacion, _fotografia, _fotografia2, _horario, _horario2, "A");
+			(_idsede, _especialidad, _informacion, _fotografia, NULL, _horario, _horario2, "A");
 END */$$
 DELIMITER ;
 
@@ -1097,12 +1120,13 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_horarioserviciodetalle_listar`(in _idservicio int)
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_horarioserviciodetalle_listar`(IN _idservicio INT)
 BEGIN
-	SELECT * FROM horarioservicio 
-		INNER JOIN servicios ON horarioservicio.idservicio = servicios.idservicio
-		WHERE horarioservicio.idservicio  = _idservicio;		
-	
+		SELECT HSR.idhorarios, HSR.dia, TIME_FORMAT(HSR.horainicio, "%r") AS horainicio, TIME_FORMAT(HSR.horafin, "%r") AS horafin,
+					HSR.`emergencia`, SRV.idservicio, SRV.idcategoria, SRV.servicio, SRV.infoservicio, SRV.fotografia, SRV.fotografia2, SRV.estado 
+				 FROM horarioservicio HSR
+		INNER JOIN servicios SRV ON HSR.idservicio = SRV.idservicio
+		WHERE SRV.idservicio  = _idservicio;		
 END */$$
 DELIMITER ;
 
@@ -1422,6 +1446,90 @@ BEGIN
 END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `spu_saludocupacional_cargar` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_cargar` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_cargar`(
+	IN _idsede INT 
+)
+BEGIN
+	SELECT * FROM saludocupacional WHERE idsede = _idsede;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_cargardetalle` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_cargardetalle` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_cargardetalle`(IN _idsaludocupacional INT)
+BEGIN
+	SELECT * FROM saludocupacional WHERE idsaludocupacional = _idsaludocupacional;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_eliminar` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_eliminar` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_eliminar`(
+	IN _idsaludocupacional		INT
+)
+BEGIN
+	DELETE FROM saludocupacional
+	WHERE idsaludocupacional = _idsaludocupacional;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_listar` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_listar` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_listar`()
+BEGIN
+	SELECT * FROM saludocupacional
+	INNER JOIN sedes ON sedes.idsede = saludocupacional.idsede;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_listar_todos` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_listar_todos` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_listar_todos`()
+BEGIN
+	SELECT * FROM saludocupacional;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_registro` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_registro` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_registro`(
+	IN _idsede				INT,
+	IN _foto					VARCHAR(100),
+	IN _titulo				VARCHAR(50),
+	IN _descripcion		TEXT
+)
+BEGIN
+	INSERT INTO saludocupacional(idsede, foto, titulo, descripcion) VALUES
+			(_idsede, _foto, _titulo, _descripcion);
+END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `spu_sedesfiltrar_especialidades` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `spu_sedesfiltrar_especialidades` */;
@@ -1671,7 +1779,7 @@ DELIMITER $$
 IN _idsede INT
 )
 BEGIN
-	SELECT servicios.servicio, dia, DATE_FORMAT(horainicio, "%H:%i") AS horainicio, DATE_FORMAT(horafin, "%H:%i") AS horafin, fotografia2 FROM horarioservicio
+	SELECT servicios.servicio, dia, TIME_FORMAT(horainicio, "%r") AS horainicio, TIME_FORMAT(horafin, "%r") AS horafin, fotografia2 FROM horarioservicio
 	INNER JOIN servicios ON servicios.idservicio = horarioservicio.idservicio
 	INNER JOIN categorias ON categorias.idcategoria = servicios.idcategoria
 	WHERE idsede = _idsede;

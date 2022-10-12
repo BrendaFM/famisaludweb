@@ -96,14 +96,19 @@
    */
   let backtotop = select('.back-to-top')
   let whatsapp = select('.btn-float.whatsapp')
+  let redsocials = select('.container-redsocials');
+
   if (backtotop) {
     const toggleBacktotop = () => {
       if (window.scrollY > 100) {
         backtotop.classList.add('active')
         whatsapp.classList.add('active')
+        redsocials.classList.add('active')
+        
       } else {
         backtotop.classList.remove('active')
         whatsapp.classList.remove('active')
+        redsocials.classList.remove('active')
       }
     }
     window.addEventListener('load', toggleBacktotop)

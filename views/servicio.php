@@ -6,7 +6,7 @@
 </div>
 
 <div class="container-data">
-    <div class="container-page container-controls">
+    <div class="container-page container-controls" data-aos="fade-up">
         <div class="row">
                 
             <h4 class="title">Busca tu Servicio:</h4>
@@ -21,12 +21,12 @@
             </div>
 
             <div class="col-md-3 form-group">
-                <button style="color:#134899;" type="button" id="btnBuscarServicio" class="form-control form-control-lg btn-servicios">Buscar</button>
+                <button  type="button" id="btnBuscarServicio" class="form-control btn-famisalud">Buscar</button>
             </div>
         </div>
     </div>
     
-    <div class="container-page content-header">
+    <div class="container-page content-header" data-aos="fade-up">
         <h4 class="title">Resultados:</h4>
     </div>
 

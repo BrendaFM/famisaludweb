@@ -42,56 +42,67 @@ if (isset($_GET['op'])){
         else{
             foreach($datos as $fila){
 
-                echo "
-                    <h1 >Sede $fila->sede</h1>
-                    ";
-                        
+                echo "Sede " . $fila->sede;                        
             }
         }
     }
     if ($_GET['op'] == 'listarUbiLinkSede') {
         $datos = $sede->listarInfoSede(["idsede" => $_GET['idsede']]);
         if(count($datos) == 0){
-            echo "<h1>No encontramos registros disponibles</h1>";
+            echo "<h5>No encontramos registros disponibles</h5>";
         }
         else{
             foreach($datos as $fila){
-                echo "
-                    <h1 class='subtitle'><a href='$fila->ubicacion'><i class='fas fa-map-marked-alt' style='color:white'></i></a> Ubícanos</h1> 
-                    ";
+                echo $fila->ubicacion;
             }
         }
     }
     if ($_GET['op'] == 'listarUbiSede') {
         $datos = $sede->listarInfoSede(["idsede" => $_GET['idsede']]);
         if(count($datos) == 0){
-            echo "<h1>No encontramos registros disponibles</h1>";
+            echo "<h5>No encontramos registros disponibles</h5>";
         }
         else{
             foreach($datos as $fila){
 
-                echo "
-                    <h4 class='mt-2 mb-1'>$fila->direccion</h1>
-                    ";
+                echo $fila->direccion;
                         
             }
         }
     }
     if ($_GET['op'] == 'listarTelefono') {
         $datos = $sede->listarInfoSede(["idsede" => $_GET['idsede']]);
+        if(count($datos) > 0){
+            echo json_encode($datos);
+        }
+    }
+
+    if ($_GET['op'] == 'listarHorariosSedeDetalle') {
+        $datos = $sede->listarHorariosSedeDetalle(["idsede" => $_GET['idsede']]);
         if(count($datos) == 0){
-            echo "<h1>No encontramos registros disponibles</h1>";
+            echo "<h1></h1>";
         }
         else{
             foreach($datos as $fila){
-
-                echo "
-                <h2 class='mt-3'>Contacto:</h2>
-                <h4><i class='far fa-envelope'></i> $fila->correo</h4>
-                <h4><a href='https://wa.me/$fila->telefono'><i class='fab fa-whatsapp' style='color:white'></i></a> $fila->telefono</h4>
-                ";
                         
+                echo "
+                    <span class='subtitle'>{$fila->titulohorario}:</span>
+                    <div class='content'>
+                        <span><i class='fas fa-stopwatch'></i>  {$fila->horario1}</span>
+                        <span><i class='fas fa-business-time'></i> {$fila->horario2}</span>
+                    </div>
+                ";
             }
+        }
+    }
+
+    if ($_GET['op'] == 'fondo') {
+        $datos = $sede->listarInfoSede(["idsede" => $_GET['idsede']]);
+        if(count($datos) == 0){
+            echo "<h1></h1>";
+        }
+        else{
+            echo json_encode($datos);
         }
     }
     if ($_GET['op'] == 'carruseDetallePrincipal') {
@@ -103,16 +114,16 @@ if (isset($_GET['op'])){
             foreach($datos as $fila){
 
                 echo "
-                    <div class='carousel-item'>
-                        <img src='../famisaludwebadmin/img/carouseldet/$fila->imagen' class='d-block w-100' style='width: 100%;  max-height: 38em; object-fit: fill; object-position: center center;'>
+                    <div class='carousel-item active'>
+                        <img src='../famisaludwebadmin/img/carouseldet/$fila->imagen'>
                     </div>
                     ";
                         
             }
         }
     }
-    if ($_GET['op'] == 'listarHorariosSedeDetalle') {
-        $datos = $sede->listarHorariosSedeDetalle(["idsede" => $_GET['idsede']]);
+    if ($_GET['op'] == 'carruseDetalleSecundario') {
+        $datos = $sede->carruseDetalleSecundario(["idsede" => $_GET['idsede']]);
         if(count($datos) == 0){
             echo "<h1></h1>";
         }
@@ -120,14 +131,9 @@ if (isset($_GET['op'])){
             foreach($datos as $fila){
 
                 echo "
-                    <div class='mt-1'>
-                        <p>$fila->titulohorario:</p>
+                    <div class='carousel-item'>
+                        <img src='../famisaludwebadmin/img/carouseldet/$fila->imagen' >
                     </div>
-                    <ul class='mb-3'>
-                        <i class='fas fa-clock'></i> $fila->horario1.
-                        <br>
-                        <i class='fas fa-business-time'></i> $fila->horario2.
-                    </ul>
                     ";
                         
             }

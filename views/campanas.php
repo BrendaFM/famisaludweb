@@ -2,13 +2,13 @@
 
 <div class="page-header">
     <div class="container">
-        <h1 class="title">Campañas y Promociones</h1>
+        <h1 class="title">Campañas y Eventos</h1>
     </div>
 </div>
 <div class="container-data">
     <div class="container-page container-controls">
         <div class="row">
-            <h4 class="title text-center">Campañas:</h4>
+            <h4 class="title text-center d-none">Selecciona:</h4>
 
             <div class="col-md-4"></div>
             <div class="col-md-4">

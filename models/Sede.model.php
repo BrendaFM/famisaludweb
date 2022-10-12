@@ -42,5 +42,15 @@ class Sede extends ModelMaster{
         }
     }
 
+    
+    public function carruseDetalleSecundario(array $data){
+        try{
+        return parent::execProcedure($data, "spu_cargar_carrusel_detallesecundaria", true);
+        }
+        catch(Exception $error){
+        die($error->getMessage());
+        }
+    }
+
 }
 ?>

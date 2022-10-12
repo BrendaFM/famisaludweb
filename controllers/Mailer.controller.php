@@ -19,7 +19,7 @@ if(isset($_POST['op'])){
   if($_POST['op'] == 'sendMail'){
     $ip = $_SERVER['REMOTE_ADDR'];
     $captcha = $_POST['g-recaptcha-response'];
-    $secretkey = "6LcpPkAiAAAAAMpCpvHYiw2RNXvVGqH_VfMP8Dc4";
+    $secretkey = "6Le_NDIiAAAAAP2ATjdp9VM71VOG5YAfNzV8WwuZ";
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&remoteip=$ip");
   
     $attributes = json_decode($response, TRUE);
