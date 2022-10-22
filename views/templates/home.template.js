@@ -1,6 +1,6 @@
 var templateCarouselHeader = String(`
-  <div class="carousel-item active" data-idcarousel="{idcarousel}">
-    <img src="assets/img/medics/bg1.jpg" data-idcarousel="{idcarousel}" class="img-carousel d-block w-100">
+  <div class="carousel-item" data-idcarousel="{idcarousel}">
+    <img src="assets/img/medics/bg1.jpg" data-idcarousel="{idcarousel}" class="img-carousel d-block">
   </div>
 `);
 

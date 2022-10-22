@@ -29,17 +29,19 @@
 
 @media (max-width: 768px) {
   #carousel-famisalud{
-    height: 450px;
+    height: 350px;
   }
 
   #carousel-famisalud .carousel-inner .carousel-item img{
-    object-fit: cover;
+    object-fit: cover !important;
+    object-position: left center;
+    height: 100% !important;
   }
 }
 
 @media (max-width: 498px) {
   #carousel-famisalud{
-    height: 350px !important;
+    height: 280px !important;
   }
 }
 

@@ -82,7 +82,6 @@ if (isset($_GET['op'])){
         foreach($datos as $fila){
 
             echo "
-            <div class='container-data-modal'>
                 <div class='row'>
                     <div class='col-lg-6 mb-2 form-group d-flex flex-column justify-content-evenly lign-content-around'>
                         <h2 class='title'>{$fila->titulocampana}</h2>
@@ -95,7 +94,6 @@ if (isset($_GET['op'])){
                         </div>
                     </div>
                 </div>
-            </div>
             ";
 
         }

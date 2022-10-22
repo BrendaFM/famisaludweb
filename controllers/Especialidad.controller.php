@@ -124,6 +124,37 @@ if (isset($_GET['op'])){
         }
     }
 
+    // Aleatorio
+    if ($_GET['op'] == 'listarEspecialidadesAleatorio') {
+        $datos = $especialidad->listarEspecialidadesAleatorio();
+        
+        if(count($datos) == 0){
+            echo 'No hay especialidades disponible en esta sede';
+        }
+        else{
+            // Mostrar un registro, por cada iteración
+            foreach($datos as $fila){
+              
+                echo "
+                <div class='box'>
+                    <div class='box-header'>
+                        <img src='../famisaludwebadmin/img/especialidad/fotografia/$fila->fotografia'>
+                    </div>
+                    <div class='box-body'>
+                        <h5 class='subtitle text-center'>ESPECIALIDAD</h5>
+                        <h3 class='title text-center'>{$fila->especialidad}</h3>
+                    </div>
+                    <div class='box-footer'>
+                        <button type='button' class='btn btn-show-more mostrar vermas' id-codigo='$fila->idespecialidad' nombre-codigo='$fila->especialidad' data-bs-toggle='modal' data-bs-target='#modalEsp'> 
+                            <span>Ver más</span> <i class='fas fa-arrow-circle-right'></i>
+                        </button> 
+                    </div>
+                </div>
+                ";
+            }
+        }
+    }
+
     if($_GET['op'] == 'detalleespecialidad'){
         $datos = $especialidad->detalleespecialidad(['idespecialidad' => $_GET['idespecialidad']]);
 

@@ -84,7 +84,7 @@ if (isset($_GET['op'])){
                         <img src='../famisaludwebadmin/img/staffmedico/$fila->fotografia'>
                     </div>
                     <div class='box-body'>
-                        <h5 class='subtitle text-center name'>{$fila->apellidos}{$fila->nombres}</h5>
+                        <h5 class='subtitle text-center name'>{$fila->apellidos} {$fila->nombres}</h5>
                         <strong>ESPECIALIDAD:</strong> <span>{$fila->especialidad}</span> <br>
                         <strong>CMP:</strong> <span>{$fila->cmp}</span> <br>
                         <strong>RNE:</strong> <span>{$fila->rne}</span>

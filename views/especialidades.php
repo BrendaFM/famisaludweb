@@ -6,7 +6,7 @@
 <div class="container-data">
     <div class="container-page container-controls">
         <div class="row">
-            <h4 class="title text-center">Buscar especialidad:</h4>
+            <h4 class="title text-center d-none">Buscar especialidad:</h4>
 
             <div class="col-md-4"></div>
             <div class="col-md-4">
@@ -64,6 +64,18 @@
                     $("#cards-especialidad").html(result);
                 }
             });
+        }
+        
+        function listarEspecialidadesAleatorio(){
+            $.ajax({
+                url: 'controllers/Especialidad.controller.php',
+                type: 'GET',
+                data: {op: 'listarEspecialidadesAleatorio'},
+                success: function(result) {
+                    $("#cards-especialidad").html(result);
+                }
+            });
+            
         }
 
         $("#idsede").change(function() {
@@ -126,7 +138,8 @@
             });
         }
 
-        listarEspecialidades();
+        //listarEspecialidades();
+        listarEspecialidadesAleatorio();
         filtrarSedes();
 
     });

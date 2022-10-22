@@ -1,8 +1,11 @@
 <?php
 
+    date_default_timezone_set("America/Lima");
     require_once '../models/Servicio.model.php';
 
     $servicio = new Servicio();
+    $hoy = date("H:i:s");  
+    $datetime = date("H:i:s 12", mktime(16, 50, 58));
 
     if(isset($_GET['operacion'])){
 
@@ -151,21 +154,25 @@
             else{
     
                 foreach($datos as $fila){
-    
+                      if($fila->horainicio=="12:00 AM" && $fila->horafin=="11:59 PM"){
+                    $horario = "<span class='d-block'>$fila->dia: 24 HORAS</span>";
+
+                }else{
+                    $horario = "<span class='d-block'>$fila->dia: $fila->horainicio - $fila->horafin</span> ";
+                }
+
+
                     echo "
-                            <div class='box_container'>
-                                <div class=''>
-                                    <img src='../famisaludwebadmin/img/servicio/icono/$fila->fotografia2' style='width: 100%;height: 5vh;'>
-                                </div>
-                                <div class='box_container_text'>
-                                    <h5>$fila->servicio</h5>
-                                    <p>$fila->dia: $fila->horainicio am - $fila->horafin pm</p>
-                                    <p>Sabado: 7:00pm-1:00pm</p>
-                                </div>
-                            </div>
-                            
-    
-                        ";
+                    <div class='box-service'>
+                        <div class='box-icon'>
+                            <img src='../famisaludwebadmin/img/servicio/icono/$fila->fotografia2' alt=''>
+                        </div>
+                        <div class='box-text'>
+                            <h5 class='title'>$fila->servicio</h5>
+                            {$horario}
+                        </div>
+                    </div>
+                    ";
                             
                 }
             }
@@ -175,29 +182,35 @@
 
             $datos = $servicio->listarDetalleServicio(["idservicio" => $_GET['idservicio']]);
             foreach($datos as $registro){
+                if($registro->horainicio=="12:00 AM" && $registro->horafin=="11:59 PM"){
+                    $horario = "<p class='direction text-center detespecialidad'><b>Atendemos: </b>{$registro->dia} - Las 24 HORAS</p>";
+
+                }else{
+                    $horario = "<p class='direction text-center detespecialidad'><b>Atendemos: </b>{$registro->dia} - Desde {$registro->horainicio} a {$registro->horafin}</p>";
+                }
 
                 echo "
 
-                <div class='row'>
-                    <div class='col-lg-6 mb-2 form-group d-flex flex-column justify-content-evenly lign-content-around'>
-                        <h2 class='title'>{$registro->servicio}</h2>
-                        <hr>
-                        <p class='paragraph'>
-                            {$registro->infoservicio}
-                        </p>
-                        <div class='content-hours'>
-                            <h5>Horario de atención</h5>
-                            <p class='direction text-center detespecialidad'><b>Atendemos de: </b>{$registro->dia} <b>- Desde las </b>{$registro->horainicio} de la mañana <b> hasta las </b>{$registro->horafin} de la noche</p>
+                    <div class='row'>
+                        <div class='col-lg-6 mb-2 form-group d-flex flex-column justify-content-evenly lign-content-around'>
+                            <h2 class='title'>{$registro->servicio}</h2>
+                            <hr>
+                            <p class='paragraph'>
+                                {$registro->infoservicio}
+                            </p>
+                            <div class='content-hours'>
+                                <h5>Horario de atención</h5>
+                                {$horario}
+                                </div>
+                        </div>
+                        <div class='col-lg-6 mb-2 form-group d-flex justify-content-center'>
+                            <div class='content-image'>
+                            <img src='../famisaludwebadmin/img/servicio/fotografia/$registro->fotografia' >                        
+                            </div>
                         </div>
                     </div>
-                    <div class='col-lg-6 mb-2 form-group d-flex justify-content-center'>
-                        <div class='content-image'>
-                         <img src='../famisaludwebadmin/img/servicio/fotografia/$registro->fotografia' >                        
-                        </div>
-                    </div>
-                </div>
-                
-            ";
+                    
+                ";
             }
 
         }

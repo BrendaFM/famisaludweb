@@ -26,6 +26,8 @@
   margin-right: 5px;
 }
 
+.btn-covid.active,
+.btn-covid:active,
 .btn-covid:hover{
   background: #054f9e !important;
   color: #fff !important;
@@ -35,26 +37,25 @@
   position: relative; 
   border-radius: 25px; 
   overflow: visible; 
-  height: 30px; 
-  font-size: 14px;
-  padding: 0 17px;
-  margin-left: 30px;
+  height: 80%;
   text-align: center;
-  background: rgb(6, 202, 6) !important;
+  border: 0;
+  display: flex;
+  background: #06ca06 !important;
   background: linear-gradient(180deg, rgb(14, 226, 14), rgba(38, 107, 11, 0.788)) !important;
 }
 
+.btn-whatsapp span{
+  margin-top: -2px !important;
+}
+
 .btn-whatsapp i{
-  font-size: 22px;
+  position: relative; 
+  margin-right: 5px;
+  /* left: 0; 
+  bottom: -1px; 
+  font-size: 26px !important; */
 }
-
-.btn-whatsapp img{
-  position: absolute; 
-  left: -15px; 
-  top: -4px; 
-  height: 36px;
-}
-
 
 .btn-resultonline {
   font-weight: 600;
@@ -112,6 +113,16 @@
   border: 2px solid #055bb7;
 }
 
+
+.btn-outline-yellow{
+  border: 1px solid #f6c500;
+  color: #f6c500;
+}
+.btn-outline-yellow:hover{
+  border: 1px solid #f6c500 !important;
+  background: #f6c500 !important;
+  color: #fff !important;
+}
 
 
 

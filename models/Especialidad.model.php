@@ -61,5 +61,14 @@ class Especialidad extends ModelMaster{
         }
     }
 
+    public function listarEspecialidadesAleatorio(){
+        try{
+            return parent::getRows("spu_especialidades_listar_aleatorio");
+        } 
+        catch (Exception $error){
+            die($error->getMessage());
+        }
+    }
+
 }
 ?>

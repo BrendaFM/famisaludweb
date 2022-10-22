@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v12.5.1 (64 bit)
+SQLyog Community v13.1.6 (64 bit)
 MySQL - 10.4.24-MariaDB : Database - famisalud
 *********************************************************************
 */
@@ -33,9 +33,6 @@ CREATE TABLE `blogs` (
 
 /*Data for the table `blogs` */
 
-insert  into `blogs`(`idblog`,`idsede`,`tituloblog`,`infoblog`,`fotografia`) values 
-(8,1,'Fiestas Patrias','Las Festividades patrióticas por la independencia de la República del Perú —de forma simple llamadas Fiestas Patrias de Perú— son las celebraciones nacionales anuales que se llevan a cabo en todo el territorio de Perú para conmemorar la emancipación peruana2​ del Imperio español y el inicio de la formación del país sudamericano como un Estado soberano.','2022092908808.jpg');
-
 /*Table structure for table `campanas` */
 
 DROP TABLE IF EXISTS `campanas`;
@@ -55,10 +52,6 @@ CREATE TABLE `campanas` (
 
 /*Data for the table `campanas` */
 
-insert  into `campanas`(`idcampana`,`idsede`,`titulocampana`,`infocampana`,`fechainicio`,`fechafin`,`fotografia`) values 
-(3,1,'DIA DE LA BANDERA','El Día de la Bandera se conmemora cada año en el Perú el 7 de junio, en el aniversario de la batalla de Arica. Este homenaje a la Bandera del Perú fue establecido por Decreto Supremo del 30 de abril de 1924.','2022-09-15','2022-09-30','2022092809946.jpg'),
-(4,1,'DIA DEL PADRE','El Día del Padre es una celebración u homenaje dedicada a los padres. En general, la tradición católica europea lo conmemora el 19 de marzo, día de San José, padre adoptivo de Jesús. Sin embargo, varios países europeos.','2022-09-23','2022-10-07','2022092809945.jpg');
-
 /*Table structure for table `carousel` */
 
 DROP TABLE IF EXISTS `carousel`;
@@ -71,14 +64,13 @@ CREATE TABLE `carousel` (
   PRIMARY KEY (`idcarousel`),
   KEY `fk_idusuario_car` (`idusuario`),
   CONSTRAINT `fk_idusuario_car` FOREIGN KEY (`idusuario`) REFERENCES `usuarios` (`idusuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `carousel` */
 
 insert  into `carousel`(`idcarousel`,`idusuario`,`foto`,`fecharegistro`) values 
-(5,1,'2022092812032.jpg','2022-09-28'),
-(6,1,'2022092812019.jpg','2022-09-28'),
-(10,1,'20220929031530.jpg','2022-09-29');
+(18,7,'2022102207729.jpg','2022-10-22'),
+(19,7,'2022102207750.jpg','2022-10-22');
 
 /*Table structure for table `carouseldet` */
 
@@ -97,15 +89,6 @@ CREATE TABLE `carouseldet` (
 
 /*Data for the table `carouseldet` */
 
-insert  into `carouseldet`(`idcarouseldet`,`idsede`,`imagen`,`tipo`,`fecha`) values 
-(6,1,'imagencaru11.jpg','P','2022-09-26'),
-(7,1,'imagencaru12.jpg','P','2022-09-26'),
-(8,1,'imagencaru13.jpg','P','2022-09-26'),
-(12,2,'imagencaru21.jpg','P','2022-09-26'),
-(18,2,'20220930092111.jpg','P','2022-09-30'),
-(19,2,'20220930092133.jpg','P','2022-09-30'),
-(20,4,'20220930092116.jpg','P','2022-09-30');
-
 /*Table structure for table `categorias` */
 
 DROP TABLE IF EXISTS `categorias`;
@@ -121,18 +104,12 @@ CREATE TABLE `categorias` (
   UNIQUE KEY `uk_categoria_cat` (`categoria`,`idsede`),
   KEY `fk_idsede_cat` (`idsede`),
   CONSTRAINT `fk_idsede_cat` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`idsede`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `categorias` */
 
 insert  into `categorias`(`idcategoria`,`idsede`,`categoria`,`fecha`,`estado`,`estadoh`) values 
-(1,1,'Laboratorio','2022-09-21','A','I'),
-(2,1,'Quirófano ','2022-09-21','A','I'),
-(3,1,'Diagnóstico por imágenes','2022-09-22','A','I'),
-(4,1,'Emergencia','2022-09-22','A','I'),
-(5,2,'Salud Ocupacional','2022-09-22','A','A'),
-(6,2,'Médicos','2022-09-29','A','I'),
-(7,1,'Médicos','2022-09-29','A','I');
+(8,7,'Servicios','2022-10-22','A','A');
 
 /*Table structure for table `especialidades` */
 
@@ -144,7 +121,7 @@ CREATE TABLE `especialidades` (
   `especialidad` varchar(30) NOT NULL,
   `informacion` text NOT NULL,
   `fotografia` varchar(100) NOT NULL,
-  `fotografia2` varchar(100) NOT NULL,
+  `fotografia2` varchar(100) DEFAULT NULL,
   `horario` varchar(30) DEFAULT NULL,
   `horario2` varchar(30) DEFAULT NULL,
   `estadoespecialidad` char(1) NOT NULL,
@@ -152,22 +129,24 @@ CREATE TABLE `especialidades` (
   UNIQUE KEY `uk_especialidad_esp` (`especialidad`,`idsede`),
   KEY `fk_idsede_esp` (`idsede`),
   CONSTRAINT `fk_idsede_esp` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`idsede`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `especialidades` */
 
 insert  into `especialidades`(`idespecialidad`,`idsede`,`especialidad`,`informacion`,`fotografia`,`fotografia2`,`horario`,`horario2`,`estadoespecialidad`) values 
-(1,1,'Cardiología','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121207.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','Sábado de 8 am a 12pm','A'),
-(2,4,'Cardiología','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121200.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','Sábado de 8am a 10pm','A'),
-(3,1,'Psicología','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121222.jpg','2022092612.jpg','Lunes a Viernes de 8 am a 2pm','','A'),
-(4,2,'Psicología','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121258.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','Sábado de 8am a 10pm','A'),
-(5,1,'Obstetricia','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121223.jpg','2022092612.jpg','Lunes a Viernes de 11 am a 4pm','Sábado de 8am a 12pm','A'),
-(6,2,'Obstetricia','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121213.jpg','2022092612.jpg','Lunes a Viernes de 9am a 5pm','Sábado de 8am a 10pm','A'),
-(7,4,'Obstetricia','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121250.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','','A'),
-(8,1,'Medicina General','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121208.jpg','2022092612.jpg','Lunes a Viernes de 7 am a 7pm','Sábado de 7am a 12pm','A'),
-(9,2,'Medicina General','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121252.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','Sábado de 8am a 10pm','A'),
-(10,4,'Medicina General','del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los procesos mentales de','20220926121225.jpg','2022092612.jpg','Lunes a Viernes de 10 am a 5pm','Sábado de 8am a 10pm','A'),
-(14,1,'cardiologo','	del griego clásico ψυχή, translitα, logía, «tratado» o «estudio») es, a la vez, una profesión, una disciplina académica3​ y una ciencia que trata el estudio y el análisis de la conducta y los proceso','20220929031531.jpg','2022092903.jpg','','','A');
+(16,7,'MEDICINA INTERNA','Es una especialidad médica que atiende integralmente los problemas de salud en pacientes adultos, ingresados en un centro hospitalario o en consultas ambulatorias.','2022102207745.jpg',NULL,'Lunes a Viernes: 7am a 7pm','Sábado: 7am a 1pm','A'),
+(17,7,'GINECOLOGÍA','Ocupa de la mujer en todo su periodo fértil, es la subespecialidad médica y quirúrgica que trata las enfermedades del sistema reproductor femenino.','2022102207700.jpg',NULL,'Lunes a Viernes: 7am a 7pm','','A'),
+(18,7,'PEDIATRÍA','Especialidad médica y es la rama de la medicina que involucra la atención médica de bebés, niños y adolescentes, abarca desde el nacimiento hasta que el niño llegue a la adolescencia','2022102208846.jpg',NULL,'Martes: 4pm a 6pm','Miércoles: 3pm a 6pm','A'),
+(19,7,'TRAUMATOLOGÍA','La traumatología es la rama de la medicina que se dedica al estudio de las lesiones del aparato locomotor. La especialidad es médico-quirúrgica, y los médicos que la practican se llaman traumatólogos.','2022102208806.jpg',NULL,'Jueves: 3pm a 4:30 pm','','A'),
+(20,7,'GASTROENTEROLOGÍA','Es la especialidad médica que se ocupa de las enfermedades del aparato digestivo y órganos asociados, conformado por: esófago, estómago, hígado y vías biliares, páncreas, intestino delgado, colon y re','2022102208851.jpg',NULL,'Martes: 8:30am a 1:30pm','Miércoles y Jueves: 4pm a 7pm','A'),
+(21,7,'NUTRICIÓN','Se encarga de crear y desarrollar planes de alimentación, orientar al usuario sobre cómo adoptar hábitos alimentarios saludables y recetar dietas destinadas a solventar unas necesidades.','2022102208857.jpg',NULL,'Lunes a Viernes:  7am a 7pm','Sábados:  7am a 1pm','A'),
+(22,7,'CIRUGÍA GENERAL','Aborda todas aquellas patologías del aparato digestivo, sistema endocrino, órganos intraabdominales y pared abdominal que requieren de una intervención quirúrgica.','2022102208846.jpg',NULL,'Martes a Jueves: 7am a 7pm','','A'),
+(23,7,'PSIQUIATRÍA','Se dedica al estudio y promoción de la salud mental, así como al diagnóstico y tratamiento de los trastornos mentales.','2022102208815.jpg',NULL,'Lunes a Viernes: 7am a 7pm','Sábado de 7am a 1pm','A'),
+(24,7,'OFTAMOLOGÍA','La Oftalmología ​​ es la especialidad médica que estudia las enfermedades de ojo y su tratamiento, incluyendo el globo ocular, su musculatura, el sistema lagrimal y los párpados. Las personas dedicada','2022102208823.jpg',NULL,'Jueves: 4:30pm a 8:30pm','','A'),
+(25,7,'NEUROLOGÍA','Especialidad médica que estudia la estructura, función y desarrollo del sistema nervioso y muscular en estado normal y patológico,.','2022102208828.jpg',NULL,'Jueves: 4pm a 7pm','','A'),
+(26,7,'NEUMOLOGÍA','Es la especialidad médica encargada del estudio de las enfermedades del aparato respiratorio y centra su campo de actuación en el diagnóstico, tratamiento y prevención de las enfermedades del pulmón, ','2022102208805.jpg',NULL,'Jueves: 8:30 am a 12:30 m','','A'),
+(27,7,'OBSTETRICIA','Se especializa en la atención de las mujeres durante el embarazo y el parto, y en el diagnóstico y tratamiento de enfermedades de los órganos reproductivos femeninos.','2022102208857.jpg',NULL,'Lunes: 7am a 7pm','Miércoles y Viernes: 7am a 7pm','A'),
+(28,7,'MEDICINA GENERAL','La medicina general constituye el primer nivel de atención médica y es imprescindible para la prevención, detección, tratamiento y seguimiento de las enfermedades crónicas estabilizadas, responsabiliz','2022102208820.jpg',NULL,'Lunes a Domingo: 24 HORAS','','A');
 
 /*Table structure for table `horariocategoria` */
 
@@ -182,14 +161,12 @@ CREATE TABLE `horariocategoria` (
   PRIMARY KEY (`idhorarioc`),
   KEY `fk_idcategoria_hor` (`idcategoria`),
   CONSTRAINT `fk_idcategoria_hor` FOREIGN KEY (`idcategoria`) REFERENCES `categorias` (`idcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `horariocategoria` */
 
 insert  into `horariocategoria`(`idhorarioc`,`idcategoria`,`titulohorario`,`horario1`,`horario2`) values 
-(11,1,'Atención por Especialidades','Lunes a Viernes 7:00am a 7:00pm.','Lunes a Viernes 7:00am a 7:00pm.'),
-(12,2,'Emergencia','24 Horas del Día','Todos los días de la semana'),
-(13,5,'Atención de Salud Ocupacional','Lunes a Viernes 7:00am a 7:00pm','Sábados 7:00am a 1:00pm');
+(14,8,'Horarios de Servicios','Todos los días de la semana','24 HORAS');
 
 /*Table structure for table `horarioespecialidad` */
 
@@ -225,20 +202,19 @@ CREATE TABLE `horarioservicio` (
   UNIQUE KEY `uk_dia_horas` (`dia`,`idservicio`),
   KEY `fk_idservicio_horas` (`idservicio`),
   CONSTRAINT `fk_idservicio_horas` FOREIGN KEY (`idservicio`) REFERENCES `servicios` (`idservicio`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `horarioservicio` */
 
 insert  into `horarioservicio`(`idhorarios`,`idservicio`,`dia`,`horainicio`,`horafin`,`emergencia`) values 
-(20,25,'Lunes a Viernes','07:00:00','19:00:00','N'),
-(22,23,'Lunes a Domingo','00:01:00','23:59:00','S'),
-(24,30,'Lunes a Viernes','10:00:00','18:30:00','N'),
-(28,21,'Lunes a Viernes','10:00:00','19:00:00','N'),
-(29,22,'Lunes a Viernes','07:00:00','18:00:00','N'),
-(30,31,'Lunes a Viernes','09:00:00','17:00:00','N'),
-(31,28,'Lunes a Viernes','07:00:00','19:00:00','N'),
-(32,27,'Lunes a Viernes','07:30:00','19:30:00','N'),
-(33,24,'Lunes a Viernes','07:00:00','18:00:00','N');
+(34,32,'Todos los días','00:00:00','23:59:00','S'),
+(35,33,'Todos los días','00:00:00','23:59:00','S'),
+(36,34,'Todos los días','00:00:00','23:59:00','S'),
+(37,35,'Todos los días','00:00:00','23:59:00','S'),
+(38,37,'Todos los días','00:00:00','23:59:00','S'),
+(39,39,'Todos los días','00:00:00','23:59:00','S'),
+(40,38,'Todos los días','07:00:00','19:00:00','S'),
+(41,36,'Todos los días','00:00:00','23:59:00','S');
 
 /*Table structure for table `personas` */
 
@@ -256,23 +232,13 @@ CREATE TABLE `personas` (
   `especialidad` char(1) NOT NULL,
   PRIMARY KEY (`idpersona`),
   UNIQUE KEY `uk_numdoc_per` (`numdoc`,`tipodoc`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `personas` */
 
 insert  into `personas`(`idpersona`,`apellidos`,`nombres`,`tipodoc`,`numdoc`,`telefono`,`correo`,`logeado`,`especialidad`) values 
-(1,'Francia Minaya','Brenda Andrea','D','74720939','969808768','brenda@gmail.com','S','S'),
-(2,'Belleza Torres','Anderson David','D','74125896','999888777','anderson@gmail.com','S','S'),
-(3,'Boada Ramos','Luis Anderson','D','11111111','123456789','correo1@gmail.com','S','S'),
-(4,'Guerra Quispe','Jose Miguel','D','22222222','234567890','corre2o@gmail.com','N','S'),
-(5,'Diaz Perez','Carlos Armando','D','12121212','456789012','correo4@gmail.com','N','S'),
-(6,'Flores Torres','Roberto Jimmy','D','33445566','678901234','correo6@gmail.com','S','S'),
-(7,'Luyo Guerrero','Ana Maria','C','44556677','789012345','correo7@gmail.com','S','S'),
-(8,'Segarra Maroto','Cristina Noemi','D','55667788','890123456','correo8@gmail.com','N','N'),
-(9,'De Luque','Samuel Jesus','D','66778899','901234567','correo9@gmail.com','N','S'),
-(10,'Quispe Arteaga ','Guillermo Alberto','C','77889900','112345678','correo10@gmail.com','N','N'),
-(11,'Conde Valles','Daniel Nestor','D','88990011','198765432','correo11@gmail.com','N','N'),
-(12,'Roldan Uriarte','Luz Morgana','D','99001122','987654321','correo12@gmail.com','N','S');
+(15,'Famisalud','Chincha','D','45785869','956365856','manuel@gmail.com','N','N'),
+(16,'Famisalud ','Editor','D','79879878','911221114','famisaludeditor@gmail.com','S','N');
 
 /*Table structure for table `productos` */
 
@@ -293,9 +259,22 @@ CREATE TABLE `productos` (
 
 /*Data for the table `productos` */
 
-insert  into `productos`(`idproducto`,`idsede`,`producto`,`precio`,`detalle`,`fotografia`) values 
-(1,1,'Mascarilla KN95',2.00,'Mascarilla para mantenernos protegidos ante el covid','mascarilla.jpg'),
-(3,1,'Mascarilla simple',1.00,'cuida tu salud','2022092108856.jpg');
+/*Table structure for table `saludocupacional` */
+
+DROP TABLE IF EXISTS `saludocupacional`;
+
+CREATE TABLE `saludocupacional` (
+  `idsaludocupacional` int(11) NOT NULL AUTO_INCREMENT,
+  `idsede` int(11) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `descripcion` text NOT NULL,
+  PRIMARY KEY (`idsaludocupacional`),
+  KEY `fk_idsede_so` (`idsede`),
+  CONSTRAINT `fk_idsede_so` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`idsede`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `saludocupacional` */
 
 /*Table structure for table `sedes` */
 
@@ -314,14 +293,16 @@ CREATE TABLE `sedes` (
   PRIMARY KEY (`idsede`),
   UNIQUE KEY `uk_direccion_sede` (`direccion`),
   UNIQUE KEY `uk_ubicacion_sede` (`ubicacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sedes` */
 
 insert  into `sedes`(`idsede`,`sede`,`direccion`,`ubicacion`,`telefono`,`correo`,`fotografia`,`estado`,`fecharegistro`) values 
-(1,'Chincha','Calle N°, 28 de Julio 397','Chincha Alta','056504443','famisaludc@gmail.com','sede_chincha.jpg','A','2022-10-02 12:21:55'),
-(2,'Lima','Av. Arequipa 4067, Miraflores 15046','https://goo.gl/maps/j5oD31RsBQE73TxR7','012223394','famisaludl@gmail.com','sede_lima.jpeg','A','2022-10-02 12:20:55'),
-(4,'Pisco','C. San Juan de Dios, Pisco 11601','https://goo.gl/maps/tHYBs4jwYNLQru4u8','954992886','famisaludp@gmail.com','sede_pisco.jpg','A','2022-10-02 12:22:55');
+(5,'Sede Demo','Av. Callao N° 256','link','999888777','sede@gmail.com','sede_lima.jpeg','I','2022-10-12 15:29:22'),
+(6,'eliminar','none','nose','959595959','nose@gmail.com','20221012031555.jpg','I','2022-10-12 15:55:55'),
+(7,'Chincha','Calle N°, 28 de Julio 397, Chincha Alta','https://goo.gl/maps/659wafkfMBx4iN8H6','919191919','famisaludc@hotmail.com','2022102007716.jpg','A','2022-10-20 07:48:16'),
+(8,'Pisco','C. 28 de Julio 220, Pisco 11601','https://goo.gl/maps/arYNHuhuvkRLJZvs9','191919191','famisaludp@hotmaill.com','sede_pisco.jpg','A','2022-10-20 07:49:28'),
+(9,'Lima','Av. Arequipa 4067, Miraflores 15046','https://goo.gl/maps/nh4mz1K64Zzx2nFT8','313131313','famisaludl@hotmail.com','2022102007746.jpg','A','2022-10-20 07:52:46');
 
 /*Table structure for table `servicios` */
 
@@ -339,21 +320,19 @@ CREATE TABLE `servicios` (
   UNIQUE KEY `uk_servicio_serv` (`servicio`,`idcategoria`),
   KEY `fk_idcategoria_serv` (`idcategoria`),
   CONSTRAINT `fk_idcategoria_serv` FOREIGN KEY (`idcategoria`) REFERENCES `categorias` (`idcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `servicios` */
 
 insert  into `servicios`(`idservicio`,`idcategoria`,`servicio`,`infoservicio`,`fotografia`,`fotografia2`,`estado`) values 
-(21,3,'Densitometría','La densitometría es una prueba diagnóstica que mide el grado de mineralización del hueso y que se aplica tanto en el diagnóstico precoz de la osteoporosis como en el control de su evolución y valor.','20220929102246.jpg','2022092203.jpg','A'),
-(22,3,'Ecografípa','Procedimiento en el que se usan ondas de sonido de alta energía (ultrasonidos) para observar los tejidos y órganos del interior del cuerpo. Las ondas de sonido crean ecos que forman imágenes.','20220929102228.jpg','2022092204.jpg','A'),
-(23,4,'Ambulancia 24 horas','Te brindamos el servicio de atención de emergencias médicas y/o accidentales en el lugar que más lo necesites, con una flota de ambulancias Tipo II, Tipo III y unidades COVID-19 certificadas por MSD.','20220929102243.jpg','2022092207.jpg','A'),
-(24,4,'Sala de Observación','Un lugar para garantizar los máximos cuidados post-quirúrgicos durante el ingreso ambulatorio. Transcurridas unas horas y una vez que el profesional lo valore, el paciente recibe el alta médica.','20220929112346.jpg','2022092209.jpg','A'),
-(25,1,'Prueba Rápida Covid -19','El virus puede propagarse desde la boca o la nariz de una persona infectada en forma de pequeñas partículas líquidas que expulsa cuando tose, estornuda, habla, canta o respira.','20220929112311.jpg','2022092212.jpg','A'),
-(27,6,'Neurología','La Neurología es la especialidad médica que estudia la estructura, función y desarrollo del sistema nervioso (central, periférico y autónomo) y muscular en estado normal y patológico utilizando todas.','20220929112333.jpg','2022092911.jpg','A'),
-(28,6,'Oftalmología','Esta especialidad esta encargada del tratamiento de las enfermedades de los ojos, incluyendo el globo ocular, su musculatura, el sistema lagrimal y los párpados.','20220929112340.jpg','2022092210.jpg','A'),
-(29,1,'Laboratorio Clínico','El laboratorio clínico es el lugar donde un equipo multidisciplinario formado por el químico clínico, el analista clínico, el médico, el patólogo clínico, los técnicos de laboratorio y los técnicos.','20220929112324.jpg','2022092211.jpg','I'),
-(30,7,'Cardiología','La cardiología es la especialidad de la medicina que estudia el funcionamiento del aparato cardiovascular, es decir, el corazón y los vasos sanguíneos. Esta especialidad médica no suele abarcar.','20220929112355.jpg','2022092205.jpg','A'),
-(31,5,'Radiología','La radiología es una rama de la medicina que utiliza la tecnología imagenológica para diagnosticar y tratar una enfermedad. Se puede dividir áreas diferentes: radiología diagnóstica y radiología.','20220929112324.jpg','2022092206.jpg','A');
+(32,8,'AMBULANCIA','Atendemos emergencias médicas y accidentales las 24 horas y 365 días del año, a través de ambulancias de tipo II  equipadas para atender emergencias.','20221022031526.jpg','2022102203.jpg','A'),
+(33,8,'HOSPITALIZACIÓN','El el servicio de hospitalizacion ofrecemos y buscamos el bienestar/comodidad del paciente en todo momento','20221022041645.jpg','2022102204.jpg','A'),
+(34,8,'PLANTA DE OXÍGENO','Una planta de oxígeno medicinal está diseñado para generar oxígeno apto para fines médicos.','20221022041623.jpg','2022102205.jpg','A'),
+(35,8,'FARMACIA','En nuestra farmacia ofrecemos una buena calidad de atencion y los mejores productos a las personas','20221022041641.jpg','2022102206.jpg','A'),
+(36,8,'LABORATORIO','Ofrecemos la prevención, diagnóstico y tratamiento de enfermedades humanas a través de diferentes análisis .','20221022041617.jpg','2022102207.jpg','A'),
+(37,8,'RAYOS X','Ofrecemos el servicio de rayos X donde se podrán prevenir y/o detectar enfermedades, para poder realizar una buena atención.','20221022041600.jpg','2022102208.jpg','A'),
+(38,8,'ECOGRAFÍA','Ofrecemos rayos X para obtener información sobre partes internas del cuerpo y poder conocer el estado de la persona.','20221022041617.jpg','2022102209.jpg','A'),
+(39,8,'SALA DE CIRUGÍA','Disponemos de una sala de cirugía para poder realizar las intervenciones o procedimientos quirúrgicos correspondientes con la mejor seguridad y atención.','20221022041659.jpg','2022102210.jpg','A');
 
 /*Table structure for table `staffmedico` */
 
@@ -379,17 +358,6 @@ CREATE TABLE `staffmedico` (
 
 /*Data for the table `staffmedico` */
 
-insert  into `staffmedico`(`idstaffmedico`,`idpersona`,`idespecialidad`,`fotografia`,`infostaff`,`cmp`,`rne`,`fechacreacion`) values 
-(1,1,1,'20220926011351.jpg','muchos años de experiencia',123123,321213,'2022-09-26'),
-(2,2,9,'20220926011348.jpg','muchos años de experiencia',231231,321231,'2022-09-26'),
-(3,4,6,'20220926011309.jpg','muchos años de experiencia',124124,142142,'2022-09-26'),
-(4,3,8,'20220926011305.jpg','muchos años de experiencia',102365,354312,'2022-09-26'),
-(5,6,2,'20220926011309.jpg','muchos años de experiencia',354678,12547,'2022-09-26'),
-(6,5,3,'20220926011305.jpg','muchos años de experiencia',745632,125986,'2022-09-26'),
-(7,7,5,'20220926011351.jpg','muchos años de experiencia',968574,125478,'2022-09-26'),
-(8,9,9,'20220926011309.jpg','muchos años de experiencia',654546,546546,'2022-09-26'),
-(9,12,4,'20220926011339.jpg','muchos años de experiencia',777666,666777,'2022-09-26');
-
 /*Table structure for table `usuarios` */
 
 DROP TABLE IF EXISTS `usuarios`;
@@ -408,16 +376,13 @@ CREATE TABLE `usuarios` (
   UNIQUE KEY `uk_idpersona_user` (`idpersona`),
   UNIQUE KEY `uk_nombreusuario_user` (`nombreusuario`),
   CONSTRAINT `fk_idpersona_user` FOREIGN KEY (`idpersona`) REFERENCES `personas` (`idpersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `usuarios` */
 
 insert  into `usuarios`(`idusuario`,`idpersona`,`idsede`,`nombreusuario`,`clave`,`nivelacceso`,`fechaalta`,`fechabaja`,`estado`) values 
-(1,1,1,'Brenda','$2y$10$uofCvGwHuCPEZZoKpTcZses6YOS.FPmofplXmK7imIY1.AB4f/rRO','G','2022-09-18',NULL,'A'),
-(3,3,2,'Luis','$2y$10$dvgzm2Jmh0u98DerZSGkX.QH5rVqqD/ctSC3UCgYNj4jFh0CgR5mi','F','2022-09-26',NULL,'A'),
-(4,2,4,'Anderson','$2y$10$dvgzm2Jmh0u98DerZSGkX.QH5rVqqD/ctSC3UCgYNj4jFh0CgR5mi','E','2022-09-25',NULL,'A'),
-(5,6,1,'Roberto','$2y$10$dvgzm2Jmh0u98DerZSGkX.QH5rVqqD/ctSC3UCgYNj4jFh0CgR5mi','F','2022-09-27',NULL,'A'),
-(6,7,1,'Ana','$2y$10$dvgzm2Jmh0u98DerZSGkX.QH5rVqqD/ctSC3UCgYNj4jFh0CgR5mi','E','2022-09-26',NULL,'A');
+(7,15,5,'famisalud','$2y$10$dvgzm2Jmh0u98DerZSGkX.QH5rVqqD/ctSC3UCgYNj4jFh0CgR5mi','G','2022-10-12',NULL,'A'),
+(8,16,7,'editorfamisalud','$2y$10$dvgzm2Jmh0u98DerZSGkX.QH5rVqqD/ctSC3UCgYNj4jFh0CgR5mi','E','2022-10-20',NULL,'A');
 
 /* Procedure structure for procedure `spu_blogs_eliminar` */
 
@@ -653,7 +618,8 @@ DELIMITER $$
 IN _idsede INT
 )
 BEGIN
-	SELECT * FROM carouseldet WHERE idsede = _idsede AND tipo="P";
+	SELECT * FROM carouseldet WHERE idsede = _idsede AND tipo="P"
+	ORDER BY imagen DESC LIMIT 1;
 END */$$
 DELIMITER ;
 
@@ -959,6 +925,18 @@ BEGIN
 END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `spu_especialidades_listar_aleatorio` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_especialidades_listar_aleatorio` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_especialidades_listar_aleatorio`()
+BEGIN
+	SELECT * FROM especialidades order by rand() limit 21;
+END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `spu_especialidades_listaunica` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `spu_especialidades_listaunica` */;
@@ -998,13 +976,12 @@ DELIMITER $$
 	IN _especialidad	VARCHAR(30),
 	IN _informacion		TEXT,
 	IN _fotografia  	VARCHAR(100),
-	in _fotografia2		varchar(100),
-	in _horario		varchar(30),
-	in _horario2		varchar(30)
+	IN _horario		VARCHAR(30),
+	IN _horario2		VARCHAR(30)
 )
 BEGIN
 	INSERT INTO especialidades(idsede, especialidad, informacion, fotografia, fotografia2, horario, horario2, estadoespecialidad) VALUES
-			(_idsede, _especialidad, _informacion, _fotografia, _fotografia2, _horario, _horario2, "A");
+			(_idsede, _especialidad, _informacion, _fotografia, NULL, _horario, _horario2, "A");
 END */$$
 DELIMITER ;
 
@@ -1097,12 +1074,13 @@ DELIMITER ;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_horarioserviciodetalle_listar`(in _idservicio int)
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_horarioserviciodetalle_listar`(IN _idservicio INT)
 BEGIN
-	SELECT * FROM horarioservicio 
-		INNER JOIN servicios ON horarioservicio.idservicio = servicios.idservicio
-		WHERE horarioservicio.idservicio  = _idservicio;		
-	
+		SELECT HSR.idhorarios, HSR.dia, TIME_FORMAT(HSR.horainicio, "%h:%i %p") AS horainicio, TIME_FORMAT(HSR.horafin, "%h:%i %p") AS horafin,
+					HSR.`emergencia`, SRV.idservicio, SRV.idcategoria, SRV.servicio, SRV.infoservicio, SRV.fotografia, SRV.fotografia2, SRV.estado 
+				 FROM horarioservicio HSR
+		INNER JOIN servicios SRV ON HSR.idservicio = SRV.idservicio
+		WHERE SRV.idservicio  = _idservicio;		
 END */$$
 DELIMITER ;
 
@@ -1422,6 +1400,90 @@ BEGIN
 END */$$
 DELIMITER ;
 
+/* Procedure structure for procedure `spu_saludocupacional_cargar` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_cargar` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_cargar`(
+	IN _idsede INT 
+)
+BEGIN
+	SELECT * FROM saludocupacional WHERE idsede = _idsede;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_cargardetalle` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_cargardetalle` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_cargardetalle`(IN _idsaludocupacional INT)
+BEGIN
+	SELECT * FROM saludocupacional WHERE idsaludocupacional = _idsaludocupacional;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_eliminar` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_eliminar` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_eliminar`(
+	IN _idsaludocupacional		INT
+)
+BEGIN
+	DELETE FROM saludocupacional
+	WHERE idsaludocupacional = _idsaludocupacional;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_listar` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_listar` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_listar`()
+BEGIN
+	SELECT * FROM saludocupacional
+	INNER JOIN sedes ON sedes.idsede = saludocupacional.idsede;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_listar_todos` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_listar_todos` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_listar_todos`()
+BEGIN
+	SELECT * FROM saludocupacional;
+END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spu_saludocupacional_registro` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spu_saludocupacional_registro` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spu_saludocupacional_registro`(
+	IN _idsede				INT,
+	IN _foto					VARCHAR(100),
+	IN _titulo				VARCHAR(50),
+	IN _descripcion		TEXT
+)
+BEGIN
+	INSERT INTO saludocupacional(idsede, foto, titulo, descripcion) VALUES
+			(_idsede, _foto, _titulo, _descripcion);
+END */$$
+DELIMITER ;
+
 /* Procedure structure for procedure `spu_sedesfiltrar_especialidades` */
 
 /*!50003 DROP PROCEDURE IF EXISTS  `spu_sedesfiltrar_especialidades` */;
@@ -1671,7 +1733,7 @@ DELIMITER $$
 IN _idsede INT
 )
 BEGIN
-	SELECT servicios.servicio, dia, DATE_FORMAT(horainicio, "%H:%i") AS horainicio, DATE_FORMAT(horafin, "%H:%i") AS horafin, fotografia2 FROM horarioservicio
+	SELECT servicios.servicio, dia, TIME_FORMAT(horainicio, "%h:%i %p") AS horainicio, TIME_FORMAT(horafin, "%h:%i %p") AS horafin, fotografia2 FROM horarioservicio
 	INNER JOIN servicios ON servicios.idservicio = horarioservicio.idservicio
 	INNER JOIN categorias ON categorias.idcategoria = servicios.idcategoria
 	WHERE idsede = _idsede;

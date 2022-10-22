@@ -338,6 +338,10 @@ h6 {
   background-color: #dcebf0;
 }
 
+#header.bg-active .content-menu-bars .menu-button i{
+  color: #fff;
+}
+
 /* #header.bg-active .logo_fs img{
   filter: grayscale(1);
 } */

@@ -97,13 +97,3 @@ if (selectHeader) {
 
 
 
-let whatsapp = select('.btn-float.whatsapp')
-if (whatsapp) {
-  const toggleBacktotop = () => {
-    if (window.scrollY > 100) {
-      whatsapp.classList.add('active');
-    } else {
-      whatsapp.classList.remove('active');
-    }
-  }
-}

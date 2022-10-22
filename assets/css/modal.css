@@ -24,6 +24,10 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
+.content-ambulance .content-text a{
+  margin-right: 6px;
+}
+
 .content-ambulance .content-text h2{
   color: #055bb7;
   font-weight: bold;
@@ -53,6 +57,10 @@
   margin-right: -8px;
   order: 1;
   z-index: 1500;
+}
+
+.content-ambulance .ambulance .content-text a{
+  min-width: 100px;
 }
 
 .content-ambulance .ambulance .content-text:hover{
@@ -213,7 +221,7 @@
 }
 
 .container-data-modal .container-sedes .card{
-  min-width: 220px;
+  min-width: 280px;
   width: auto;
   padding: 10px;
   margin-bottom: 1em;
@@ -222,8 +230,16 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .container-data-modal .container-sedes .card{
+    min-width: 0;
+    width: 100%;
+  }
+}
+
 .container-data-modal .container-sedes .campus{
   font-weight: bold;
+  color: #055bb7;
 }
 
 .container-data-modal .container-sedes .card .direction{

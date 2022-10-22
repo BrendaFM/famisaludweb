@@ -4,17 +4,17 @@
     </div>
 </div>
 <div class="container-data">
-    <div class="container-page container-controls">
+    <div class="container-page container-controls" data-aos="fade-up">
         <div class="row">
             <h4 class="title">Busca a tu Médico:</h4>
             
             <div class="col-md-4 form-group">
-                <select id="idsede" class="form-select round-50 pd-15">
+                <select id="idsede" class="form-select round-50 pd-15 text-gray">
                     <!-- Asíncrono -->
                 </select>
             </div>
             <div class="col-md-5 form-group">
-                <select id="idespecialidad" class="form-select round-50 pd-15">
+                <select id="idespecialidad" class="form-select round-50 pd-15 text-gray">
                     <!-- Asíncrono -->
                 </select>
             </div>
@@ -24,11 +24,11 @@
         </div>
     </div>
 
-    <div class="container-page content-header">
+    <div class="container-page content-header" data-aos="fade-up">
         <h4 class="title">Nuestros Profesionales:</h4>
     </div>
   
-    <div class="container-page container-cards" id="cards">
+    <div class="container-page container-cards" id="cards" data-aos="fade-up">
      <!-- especialidades box -->
     </div>
 </div>

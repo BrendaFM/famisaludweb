@@ -1,32 +1,31 @@
 <?php
 
-    require_once '../models/Producto.model.php';
+require_once '../models/Producto.model.php';
 
-    $producto = new Producto();
+$producto = new Producto();
 
-    if (isset($_GET['op'])){
+if (isset($_GET['op'])) {
 
-        if ($_GET['op'] == 'filtrarSedesConProductos') {
-            $datos = $producto->filtrarSedesConProductos();
-            if(count($datos) > 0){
-                echo "
+    if ($_GET['op'] == 'filtrarSedesConProductos') {
+        $datos = $producto->filtrarSedesConProductos();
+        if (count($datos) > 0) {
+            echo "
                         <option value=''>Seleccione</option>
                     ";
-                // Mostrar un registro, por cada iteración
-                foreach($datos as $fila){
-                    echo "
+            // Mostrar un registro, por cada iteración
+            foreach ($datos as $fila) {
+                echo "
                         <option value='$fila->idsede'>$fila->sede</option>
                     ";
-                            
-                }
             }
         }
+    }
 
-        if ($_GET['op'] == 'listarProductoPorSede') {
-            $datos = $producto->listarProductoPorSede(['idsede' => $_GET['idsede']]);
-            if(count($datos) != 0){
-                foreach($datos as $fila){
-                    echo "
+    if ($_GET['op'] == 'listarProductoPorSede') {
+        $datos = $producto->listarProductoPorSede(['idsede' => $_GET['idsede']]);
+        if (count($datos) != 0) {
+            foreach ($datos as $fila) {
+                echo "
                         <div class='col-md-3  text-center card-farmacia' style='max-width: 300px; margin-bottom: 2em'>
                             <div class='card' >
                                 <img src='../../famisaludwebadmin/img/farmacia/$fila->fotografia' class='card-img-top'  alt='...''>
@@ -40,20 +39,18 @@
                             </div>
                         </div>
                     ";
-                }
             }
-
-            
         }
+    }
 
-        
 
 
-        if($_GET['op'] == "detalleproducto"){
-            $datos = $producto->detalleproducto(["idproducto" => $_GET['idproducto']]);
-    
-            foreach($datos as $fila){
-                echo "
+
+    if ($_GET['op'] == "detalleproducto") {
+        $datos = $producto->detalleproducto(["idproducto" => $_GET['idproducto']]);
+
+        foreach ($datos as $fila) {
+            echo "
                         <div class='row'>
                                 <div class='col-md-6 text-center '>
                                     <br>
@@ -62,21 +59,18 @@
                                 
                                 <div class='col-md-6 detespecialidad text-black d-grid gap-2'>
                                     <br>
-                                    <h2><b> $fila->producto </b></h2>
+                                    <h2 style='color: #055bb7'><b> $fila->producto </b></h2>
                                     <h3 class='detespecialidad'>S/ $fila->precio</h3>
                                     <hr>
-                                    <h4> <b> Detalle: </b></h4>
-                                    <p>$fila->detalle</p>
+                                    <h4 style='color: #055bb7'> <b> Detalle: </b></h4>
+                                    <p >$fila->detalle</p>
                                     <br>
 
-                                    <a type='button' class ='btn btn-xl btn-block btn-success float-end size-font' href='https://wa.me/51956869696'> <i class='fab fa-whatsapp'> Cotiza tu receta</i></a>
+                                    <a type='button' class ='btn btn-block btn-lg btn-round-50 btn-green float-end size-font' href='https://wa.me/922126202'> <i class='fab fa-whatsapp'></i> Cotiza tu receta</a>
                                     <br>
                                 </div>
                         </div>
                 ";
-            }
         }
     }
-
-
-?>
+}
