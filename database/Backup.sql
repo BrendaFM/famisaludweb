@@ -276,6 +276,28 @@ CREATE TABLE `saludocupacional` (
 
 /*Data for the table `saludocupacional` */
 
+/*Table structure for table `saludocupacional` */
+
+DROP TABLE IF EXISTS `saludocupacional`;
+
+CREATE TABLE `saludocupacional` (
+  `idsaludocupacional` int(11) NOT NULL AUTO_INCREMENT,
+  `idsede` int(11) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `titulo` varchar(50) NOT NULL,
+  `descripcion` text NOT NULL,
+  PRIMARY KEY (`idsaludocupacional`),
+  KEY `fk_idsede_so` (`idsede`),
+  CONSTRAINT `fk_idsede_so` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`idsede`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `saludocupacional` */
+
+insert  into `saludocupacional`(`idsaludocupacional`,`idsede`,`foto`,`titulo`,`descripcion`) values 
+(2,2,'20221005111109.jpg','Examen Básicos','La Ley N° 29783 es ​​obligatoria y se aplica a todas las actividades económicas. Esto incluye a los empleadores y empleados de la práctica privada, trabajadores del sector público, trabajadores de las fuerzas armadas y la policía nacional, e incluso trabajadores independientes en todo el territorio, ya que un gran porcentaje de las personas que trabajan en Perú están desprotegidas. .'),
+(3,1,'20221005111109.jpg','Salud Ocupacional','Ciencia multidisciplinaria, que tiene como finalidad promover\r\ny mantener el más alto grado posible de bienestar físico,\r\nmental y social de los trabajadores en sus puestos de\r\ntrabajo; prevenir todo'),
+(4,4,'20221007061849.jpg','Beneficios de la salud ocupacional','Antiguamente, el enfoque en la salud ocupacional se centraba, sobre todo, en aquellos que realizaban trabajos manuales, como por ejemplo los obreros. Después de la Guerra Civil, muchas fábricas abrier');
+
 /*Table structure for table `sedes` */
 
 DROP TABLE IF EXISTS `sedes`;
