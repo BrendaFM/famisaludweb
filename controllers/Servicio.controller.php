@@ -148,6 +148,8 @@
 
         if($operacion == 'listarServiciosSedeDetalle') {
             $datos = $servicio->listarServiciosSedeDetalle(["idsede" => $_GET['idsede']]);
+
+
             if(count($datos) == 0){
                 echo "<option>No encontramos Servicio disponibles</opti>";
             }

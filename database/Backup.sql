@@ -1,5 +1,5 @@
 /*
-SQLyog Community v13.1.6 (64 bit)
+SQLyog Ultimate v12.5.1 (64 bit)
 MySQL - 10.4.24-MariaDB : Database - famisalud
 *********************************************************************
 */
@@ -276,23 +276,6 @@ CREATE TABLE `saludocupacional` (
 
 /*Data for the table `saludocupacional` */
 
-/*Table structure for table `saludocupacional` */
-
-DROP TABLE IF EXISTS `saludocupacional`;
-
-CREATE TABLE `saludocupacional` (
-  `idsaludocupacional` int(11) NOT NULL AUTO_INCREMENT,
-  `idsede` int(11) NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  `titulo` varchar(50) NOT NULL,
-  `descripcion` text NOT NULL,
-  PRIMARY KEY (`idsaludocupacional`),
-  KEY `fk_idsede_so` (`idsede`),
-  CONSTRAINT `fk_idsede_so` FOREIGN KEY (`idsede`) REFERENCES `sedes` (`idsede`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
-/*Data for the table `saludocupacional` */
-
 insert  into `saludocupacional`(`idsaludocupacional`,`idsede`,`foto`,`titulo`,`descripcion`) values 
 (2,2,'20221005111109.jpg','Examen Básicos','La Ley N° 29783 es ​​obligatoria y se aplica a todas las actividades económicas. Esto incluye a los empleadores y empleados de la práctica privada, trabajadores del sector público, trabajadores de las fuerzas armadas y la policía nacional, e incluso trabajadores independientes en todo el territorio, ya que un gran porcentaje de las personas que trabajan en Perú están desprotegidas. .'),
 (3,1,'20221005111109.jpg','Salud Ocupacional','Ciencia multidisciplinaria, que tiene como finalidad promover\r\ny mantener el más alto grado posible de bienestar físico,\r\nmental y social de los trabajadores en sus puestos de\r\ntrabajo; prevenir todo'),
@@ -315,16 +298,17 @@ CREATE TABLE `sedes` (
   PRIMARY KEY (`idsede`),
   UNIQUE KEY `uk_direccion_sede` (`direccion`),
   UNIQUE KEY `uk_ubicacion_sede` (`ubicacion`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `sedes` */
 
 insert  into `sedes`(`idsede`,`sede`,`direccion`,`ubicacion`,`telefono`,`correo`,`fotografia`,`estado`,`fecharegistro`) values 
 (5,'Sede Demo','Av. Callao N° 256','link','999888777','sede@gmail.com','sede_lima.jpeg','I','2022-10-12 15:29:22'),
 (6,'eliminar','none','nose','959595959','nose@gmail.com','20221012031555.jpg','I','2022-10-12 15:55:55'),
-(7,'Chincha','Calle N°, 28 de Julio 397, Chincha Alta','https://goo.gl/maps/659wafkfMBx4iN8H6','919191919','famisaludc@hotmail.com','2022102007716.jpg','A','2022-10-20 07:48:16'),
+(7,'Chincha','Calle N°, 28 de Julio 397, Chincha Alta','https://goo.gl/maps/659wafkfMBx4iN8H6','919191919','famisaludc@hotmail.com','sede_chincha.jpg','A','2022-10-19 07:48:16'),
 (8,'Pisco','C. 28 de Julio 220, Pisco 11601','https://goo.gl/maps/arYNHuhuvkRLJZvs9','191919191','famisaludp@hotmaill.com','sede_pisco.jpg','A','2022-10-20 07:49:28'),
-(9,'Lima','Av. Arequipa 4067, Miraflores 15046','https://goo.gl/maps/nh4mz1K64Zzx2nFT8','313131313','famisaludl@hotmail.com','2022102007746.jpg','A','2022-10-20 07:52:46');
+(9,'Lima','Av. Arequipa 4067, Miraflores 15046','https://goo.gl/maps/nh4mz1K64Zzx2nFT8','313131313','famisaludl@hotmail.com','2022102007746.jpg','A','2022-10-18 07:52:46'),
+(10,'Cañete','Av. Lusmasaro N° 25','llllldokdej','956585858','famisalud@gmail.com','20221022051747.jpg','I','2022-10-22 17:32:47');
 
 /*Table structure for table `servicios` */
 

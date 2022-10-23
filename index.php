@@ -2,8 +2,9 @@
 <html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>FamiSalud | Tu Salud en Buenas Manos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,8 +28,8 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -76,7 +77,11 @@
     <div id="topbar" class="d-flex align-items-center fixed-top d-flex justify-content-end">
       <div class="justify-content-center d-flex justify-content-md-end">
 
-        <div class="contact-info d-none d-md-flex align-items-center">
+        <div class="contact-info d-danger d-md-flex align-items-center">
+          <a class="btn btn-emergencia btn-flat border-0" data-bs-toggle="modal" href="#modalEmergence" role="button">
+            <i class="fas fa-first-aid me-1"></i>
+            <span> Emergencia</span>
+          </a>
           <a class="btn btn-covid btn-flat" data-bs-toggle="modal" href="#modalAmbulance" role="button">
             <i class="fas fa-ambulance icon-menu"></i>
             <span> Ambulancia Tipo II</span>
@@ -239,7 +244,7 @@
                 <li><i class="bx bx-chevron-right"></i> <a href="index.php?view=blogs">Ultimas Novedades</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="index.php?view=campanas">Campañas y Eventos</a></li>
                 <li><i class="bx bx-chevron-right"></i> <a href="index.php?view=productos-farmacia">Farmacia</a></li>
-                <li><i class="bx bx-chevron-right"></i> <a href="index.php?view=home#modalAmbulance" data-bs-toggle="modal" role="button">Ambulancia</a></li>
+                <li><i class="bx bx-chevron-right fw-bold"></i> <a href="index.php?view=home#modalAmbulance" data-bs-toggle="modal" role="button">Ambulancia</a> <span class="mx-1">y</span> <a class="text-danger fw-bold" href="index.php?view=home#modalEmergence" data-bs-toggle="modal" role="button">Emergencia</a></li>
               </ul>
             </div>
 
@@ -263,7 +268,7 @@
 
   <!-- ======== Menu Right ============ -->
   <div id="sidebar-right" class="sidebar-right">
-    <div class="content-sidebar">
+    <div class="content-sidebar ">
       <div class="sidebar-header">
         <div class="d-flex align-items-center justify-content-lg-between">
           <a href="#" class="logo logo_fs me-auto me-lg-0"><img src="assets/img/LOGO_NEW.png" class="img-fluid"></a>
@@ -283,7 +288,7 @@
           <div class="col-lg-6">
             <nav class="navbar-right">
               <ul>
-                <li class="title-menu text-danger">Emergencias</li>
+                <li class="fw-bold"><a class="nav-link text-danger fw-bold" href="index.php?view=home#modalEmergence" data-bs-toggle="modal" role="button">Emergencia</a></li>
                 <li><a class="nav-link" href="index.php?view=home#modalAmbulance" data-bs-toggle="modal" role="button">Ambulancia Tipo II</a></li>
               </ul>
               <ul>
@@ -401,14 +406,56 @@
     </div>
   </div>
 
+  <!-- Modal Emergencia -->
+  <div class="modal fade" id="modalEmergence" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title d-none" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="content-ambulance">
+            <div class="ambulance">
+              <div class="content-text">
+                <h2 class="text-danger">Emergencia 24/7</h2>
+                <p>
+                  Para el transporte asistido de pacientes, en estado crítico, cuenta con capacidad de asistencia médica.
+                </p>
+                <div class="d-flex justify-content-center align-items-center">
+                  <a href="tel:51956256256" class="btn btn-round-50 btn-success btn-sm">
+                    <i class="fas fa-phone-alt"></i>
+                    Chincha
+                  </a>
+                  <a href="tel:51956256256" class="btn btn-round-50 btn-success btn-sm">
+                    <i class="fas fa-phone-alt"></i>
+                    Pisco
+                  </a>
+                  <a href="tel:51956256256" class="btn btn-round-50 btn-success btn-sm link-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    Whatsapp
+                  </a>
+                </div>
+              </div>
+              <div class="content-image">
+                <img src="assets/img/ambulances/ambulance_7.jpg">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -437,13 +484,13 @@
     $(document).ready(function() {
 
       var view = getParam("view");
-      
+
 
       if (view != false) {
         $("#content-data").load(`views/${view}.php`);
       } else {
         $("#content-data").load(`views/home.php`);
-      }     
+      }
 
     });
   </script>

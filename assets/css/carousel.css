@@ -27,6 +27,30 @@
 }
 
 
+@media (max-width: 1350px) {
+  #carousel-famisalud{
+    height: 600px;
+  }
+}
+
+@media (max-width: 1150px) {
+  #carousel-famisalud{
+    height: 500px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #carousel-famisalud{
+    height: 380px;
+  }
+}
+
+@media (max-width: 890px) {
+  #carousel-famisalud{
+    height: 360px;
+  }
+}
+
 @media (max-width: 768px) {
   #carousel-famisalud{
     height: 350px;

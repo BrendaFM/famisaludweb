@@ -687,11 +687,21 @@
   height: auto;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  width: 80%;
+  width: 85%;
   margin: auto;
 }
+
+/* @media (max-width: 898px) {
+  .detail-campus .content-services .content{
+    justify-content: center;
+    align-items: flex-start;
+    width: 85%;
+    margin: auto;
+  }
+} */
+
 .content-services .content .box-service{
   width: 360px;
   height: auto;

@@ -2,17 +2,18 @@
 <html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>FamiSalud | Tu Salud en Buenas Manos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!-- Google Font: Source Sans Pro -->
@@ -58,6 +59,7 @@
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/modal.css">
 </head>
+
 <body>
   <!-- ======== Container ============ -->
   <div class="wrapper">
@@ -279,14 +281,14 @@
     </footer><!-- End Footer -->
   </div>
 
-    
+
   <!-- ======== Menu Right ============ -->
   <div id="sidebar-right" class="sidebar-right">
     <div class="content-sidebar">
       <div class="sidebar-header">
         <div class="d-flex align-items-center justify-content-lg-between">
           <a href="#" class="logo logo_fs me-auto me-lg-0"><img src="assets/img/LOGO_NEW.png" class="img-fluid"></a>
-    
+
           <div class="content-menu-bars">
             <input type="checkbox" id="check-menu-sidebar" class="check-menu">
             <label for="check-menu-sidebar" class="menu-button">
@@ -300,11 +302,11 @@
       <div class="sidebar-body">
         <div class="row mt-4">
           <div class="col-lg-6">
-            <nav class="navbar-right">                      
-              <ul>                
+            <nav class="navbar-right">
+              <ul>
                 <li class="title-menu text-danger">Emergencias</li>
                 <li><a class="nav-link" href="index.php?view=home#modalAmbulance" data-bs-toggle="modal" role="button">Ambulancia Tipo II</a></li>
-              </ul>  
+              </ul>
               <ul>
                 <li class="title-menu">Clínica</li>
                 <li><a class="nav-link" href="index.php">Inicio</a></li>
@@ -313,15 +315,15 @@
                 <li><a class="nav-link" href="index.php?view=servicio"><span>Servicios</span></a></li>
                 <li><a class="nav-link" href="index.php?view=especialidades">Especialidades</a></li>
                 <li><a class="nav-link" href="index.php?view=about">¿Quienes somos?</a></li>
-              </ul>     
+              </ul>
               <ul>
                 <li class="title-menu">Nuestros Servicios</li>
                 <li><a class="nav-link" href="index.php?view=productos-farmacia">Farmacia</a></li>
-                <li><a class="nav-link" href="index.php?view=salud-ocupacional">Salud Ocupacional</a></li>            
+                <li><a class="nav-link" href="index.php?view=salud-ocupacional">Salud Ocupacional</a></li>
                 <li><a class="nav-link" href="index.php?view=quotation">Cotizar protocolo</a></li>
-              </ul>  
-              
-              <ul>                
+              </ul>
+
+              <ul>
                 <li class="title-menu">Resultados para Empresas</li>
                 <li><a class="nav-link" target="_blank" href="http://www.famisalud.com.pe/ClientesMiraflores">Lima</a></li>
                 <li><a class="nav-link" target="_blank" href="http://www.famisalud.com.pe/clienteschincha"><span>Chincha</span></a>
@@ -331,38 +333,38 @@
             </nav><!-- .navbar -->
           </div>
           <div class="col-lg-6">
-          <nav class="navbar-right">                
-              <ul>                
+            <nav class="navbar-right">
+              <ul>
                 <li class="title-menu">Novedades y Eventos</li>
                 <li><a class="nav-link" href="index.php?view=blogs">Ultimas Novedades</a></li>
                 <li><a class="nav-link" href="index.php?view=campanas">Campañas y Eventos</a></li>
-              </ul>    
-              <ul>                
+              </ul>
+              <ul>
                 <li class="title-menu">Otros enlaces</li>
                 <li><a class="nav-link" href="#">Trabaja con Nosotros</a></li>
                 <li><a class="nav-link" href="index.php?view=terminos-condiciones">Términos y Condiciones</a></li>
                 <li><a class="nav-link" href="index.php?view=politica-privacidad">Política y Privacidad</a></li>
-              </ul>          
+              </ul>
             </nav><!-- .navbar -->
           </div>
         </div>
       </div>
 
-      <div class="sidebar-footer d-none">    
-          <a href="#book-a-table" class="btn-resultonline">Informes Ocupacional</a>
-          <a class="btn btn-success btn-whatsapp link-whatsapp" href="https://wa.me/945256369">          
-            <img src="assets/img/about/doctor.png">
-            <span>Contactanos</span>
-            <i class="fab fa-whatsapp icon-menu"></i>
-          </a>
+      <div class="sidebar-footer d-none">
+        <a href="#book-a-table" class="btn-resultonline">Informes Ocupacional</a>
+        <a class="btn btn-success btn-whatsapp link-whatsapp" href="https://wa.me/945256369">
+          <img src="assets/img/about/doctor.png">
+          <span>Contactanos</span>
+          <i class="fab fa-whatsapp icon-menu"></i>
+        </a>
       </div>
     </div>
   </div>
-  
+
   <!-- ======= Botón flotante ======= -->
   <div class="container-redsocials">
     <a href="https://web.facebook.com/Clinicafamisaludoficial" target="_blank" class="btn btn-float facebook call-animation"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" class="btn btn-float whatsapp link-whatsapp" target="_blank" ><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="btn btn-float whatsapp link-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
   </div>
 
@@ -371,7 +373,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
-         <div class="load-modal loading">Suscribiendo...</div>
+          <div class="load-modal loading">Suscribiendo...</div>
         </div>
       </div>
     </div>
@@ -386,21 +388,21 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          
-          <div class="content-ambulance">  
+
+          <div class="content-ambulance">
             <div class="ambulance">
               <div class="content-text">
                 <h2>Ambulancia Tipo II</h2>
                 <p>
-                Para el transporte asistido de pacientes, en estado crítico, cuenta con capacidad de asistencia médica.
+                  Para el transporte asistido de pacientes, en estado crítico, cuenta con capacidad de asistencia médica.
                 </p>
                 <div class="d-flex justify-content-center align-items-center">
                   <a href="tel:51956256256" class="btn btn-round-50 btn-success btn-sm">
-                    <i class="fas fa-phone-alt"></i> 
+                    <i class="fas fa-phone-alt"></i>
                     Chincha
                   </a>
                   <a href="tel:51956256256" class="btn btn-round-50 btn-success btn-sm">
-                    <i class="fas fa-phone-alt"></i> 
+                    <i class="fas fa-phone-alt"></i>
                     Pisco
                   </a>
                   <a href="tel:51956256256" class="btn btn-round-50 btn-success btn-sm link-whatsapp">
@@ -410,10 +412,10 @@
                 </div>
               </div>
               <div class="content-image">
-                <img src="assets/img/ambulances/ambulance_7.jpg">                
+                <img src="assets/img/ambulances/ambulance_7.jpg">
               </div>
             </div>
-                     
+
           </div>
         </div>
       </div>

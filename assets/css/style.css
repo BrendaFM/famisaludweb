@@ -5,8 +5,6 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
-
-
 html {
   font-family: Arial, Helvetica, "Open Sans", sans-serif ;
   line-height: 1.15;
@@ -148,7 +146,7 @@ h6 {
 #topbar {
   height: auto;
   font-size: 14px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   z-index: 998;
   background:transparent;
 }
@@ -167,6 +165,19 @@ h6 {
   width: 55%;
   background: #11a0e2;
   position: relative;
+}
+
+@media (max-width: 1805px) {
+  #topbar .contact-info{
+    width: 60%;
+  }
+}
+
+@media (max-width: 1200px) {
+  #topbar .contact-info{
+    width: 65%;
+    opacity: 0;
+  }
 }
 
 /* #topbar .contact-info::after {
@@ -559,6 +570,8 @@ MY CSS CONFIG MENU
   
   #topbar .contact-info{
     background: transparent;
+    width: 55%;
+    opacity: 1;
   }
 
   #topbar .contact-info .btn:nth-child(1){
@@ -568,8 +581,7 @@ MY CSS CONFIG MENU
     flex-direction: column;
   }
 
-  #topbar .contact-info .btn:nth-child(2),
-  #topbar .contact-info .btn:nth-child(3){
+  #topbar .contact-info .btn:not(.btn:nth-child(1)){
     display: none;
   }
 
@@ -586,7 +598,7 @@ MY CSS CONFIG MENU
   }
 }
 
-@media (max-width: 920px) {
+@media (max-width: 870px) {
 
   #topbar .contact-info .btn:nth-child(1){
     display: none;

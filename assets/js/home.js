@@ -105,19 +105,23 @@ function loadCampanas() {
     type: 'GET',
     data: 'op=listarCampanasRandom',
     success: function (result) {
-      let data = JSON.parse(result);
 
-      data.forEach(value => {
+      if(result != ""){
+        let data = JSON.parse(result);
+  
+        data.forEach(value => {
+  
+          let campana = tmpCamapana;
+          for (key in value) {
+            campana = campana.replaceAll('{' + key + '}', value[key]);
+          }
+  
+          $("#events .content-events").append(campana);
+          $(`#events .content-events .img-campana[data-idcampana='${value.idcampana}']`).attr('src', '../famisaludwebadmin/img/campana/' + value.fotografia);
+  
+        });
+      }
 
-        let campana = tmpCamapana;
-        for (key in value) {
-          campana = campana.replaceAll('{' + key + '}', value[key]);
-        }
-
-        $("#events .content-events").append(campana);
-        $(`#events .content-events .img-campana[data-idcampana='${value.idcampana}']`).attr('src', '../famisaludwebadmin/img/campana/' + value.fotografia);
-
-      });
     }
   });
 }
